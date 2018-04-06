@@ -18,13 +18,12 @@
 
 <body>
 <h1>Welcome to SPU book finder</h1>
-<div class="topnav">
-  <a class="active" href="edit-account.html">My Account</a>
-  <a class="active" href="index.php">Search Book</a>
-  <a href="add_book_form.php">Add Book</a>
-   <a href="edit_posts.html">Edit</a>
-
-</div> 
+  <div class="topnav">
+	    	<a class="active" href="edit-account.html">My Account</a>
+	    	<a class="active" href="search.php">Search Book</a>
+    		<a href="add_book_form.php">Add Book</a>
+    		<a href="edit_posts.html">Edit</a>
+	</div>
 <form class="form-horizontal" action="add_joke.php">
 <fieldset>
 
