@@ -3,6 +3,11 @@
 <head>
 	<title>Index Page</title>
 	<link rel="stylesheet" href="style.css">
+	
+<script
+src = "check_email.js"> 
+	</script>
+	
 </head>
 
 <body>
@@ -44,13 +49,13 @@
 
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" action="/action_page.php">
+  <form class="modal-content" name="signupForm" action="/action_page.php">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="email" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
