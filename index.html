@@ -15,12 +15,9 @@ src = "check_email.js">
 <div id="head">
 	<h1>SPU Book Finder</h1>
 
-	<div class="topnav">
-		<a class="active" href="edit-account.html">My Account</a>
-	    	<a class="active" href="search.php">Search Book</a>
-    		<a href="add_book_form.html">Add Book</a>
-    		<a href="edit_posts.html">Edit</a>
-	</div> 
+	<?php 
+		include("navigation.php"); 
+	?>
 	
 <button onclick="document.getElementById('id01').style.display='block'" style="width:40%; height: 80px; font-size:3em; margin: 15% 30%">Login</button>
 
