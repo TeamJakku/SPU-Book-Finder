@@ -8,5 +8,6 @@ function checkEmail() {
 	
 	if(!n){
 			alert("Please enter your SPU email");
+			return false;
 		}
 }
