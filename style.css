@@ -112,7 +112,7 @@ hr {
 }
 #head{
     height:700px;
-	background-image:url("picture/messybooks.jpg") no-repeat;
+	background-image:url("picture/messybooks.jpg");
 	background-repeat: no-repeat;
     background-size: 100% 100%;
 
