@@ -112,8 +112,9 @@ hr {
 }
 #head{
     height:700px;
-   
-
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
 }
 
 #member{
@@ -130,6 +131,7 @@ hr {
   display: inline-block;
   width: auto;
   height: 100%;
+  position: absolute;
 }
 
 
