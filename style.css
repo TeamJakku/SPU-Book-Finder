@@ -112,6 +112,7 @@ hr {
     }
 }
 #head{
+    background:url(picture/messybooks.jpg) no-repeat;
     display: inline-block;
     width: 100%;
     height: 700px;
