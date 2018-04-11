@@ -129,10 +129,9 @@ hr {
 .main-background{
   display: block;
   max-width:230px;
-  max-height:95px;
   width: auto;
   height: auto;
-
+  position: absolute;
 }
 
 
