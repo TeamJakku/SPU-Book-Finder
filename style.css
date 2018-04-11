@@ -112,7 +112,8 @@ hr {
     }
 }
 #head{
-    background-image:url("picture/messybooks.jpg") no-repeat;
+    background-image:url("picture/messybooks.jpg");
+    background-repeat: no-repeat;
     display: inline-block;
     width: 100%;
     height: 700px;
