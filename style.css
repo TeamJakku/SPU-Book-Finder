@@ -131,9 +131,8 @@ hr {
 
 .main-background{
   display: block;
-  width: 100%;
+  width: 1024px;
   height: 700px;
-  position: absolute;
 }
 
 
