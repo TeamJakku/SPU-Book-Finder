@@ -128,7 +128,7 @@ hr {
 }
 
 .main-background{
-  display: inline-block;
+  display: block;
   width: auto;
   height: 100%;
   position: absolute;
