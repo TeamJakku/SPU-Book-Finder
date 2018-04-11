@@ -170,6 +170,7 @@ input[type=text], input[type=email], input[type=password] {
 
 /* Set a style for all buttons */
 button {
+    display: inline-block;
     background-color: #4CAF50;
     color: white;
     border: none;
