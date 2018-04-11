@@ -116,7 +116,8 @@ hr {
     height: 700px;
     position: relative;
     display: inline-block;
-
+    top: 0;
+    left: 0;
 }
 
 #member{
