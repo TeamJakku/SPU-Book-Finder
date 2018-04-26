@@ -115,7 +115,7 @@ function closeNav() {
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <input type="password" name="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="New Password" required>
+                        <input type="password" name="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Enter New Password" required>
                         
                     </div>
 
