@@ -2,6 +2,15 @@
 <head>
   <title>Welcome to SPU Book Finder</title>
 
+<?php
+//session_start();
+
+//include "db_connection.php";
+
+//include "login.php"
+
+?>
+
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
 
@@ -77,6 +86,7 @@
   <a href="index.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>

@@ -43,7 +43,7 @@
 <html>
 <head>
 	<title>SPU Sign Up/Login</title>
-	
+	<link rel="stylesheet" href="style.css">
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -54,24 +54,36 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1 style="font-family: Tahoma;">Welcome to SPU Book Finder</h1>
+	<div class="ix">
+	<h1 class="log">Welcome to SPU Book Finder</h1>
+	</div>
+
 	
+	<div class="des">
+	<p class="desfont">A web-based application that facilitates the process of purchasing and selling textbooks </p>
+	</div>
 	
+	<div class="sechalf">
 	<form class = "form-horizontal" action="login.php" method="post" enctype="multipart/form-data">
 	<fieldset>
+	
 	
 	<div class="form-group">
 	
 		<label class="col-md-4 control-label" for="login"></label>
+		
 		<div class="col-md-5">
-			<h2>Login</h2>
+		
+			<h2 class="t">Login</h2>
+			
 			<p class="help-block"> Enter your username and password</p>
+			<div class="logoutline">
 			<input placeholder="Username" name="username" type="text" autofocus class="form-control" >
 			<input placeholder="Password" name="password" type="password" class="form-control">
-			
-			
+		</div>
 		</div>
 	</div>
+	
 	<div class="form-group">
 	<label class="col-md-4 control-label" for="Search Button"></label>
 		<div class="col-md-4">
@@ -93,8 +105,10 @@
 	
 		<label class="col-md-4 control-label" for="register"></label>
 		<div class="col-md-5">
-		<h2>Sign Up </h2>
+		<h2 class="t">Sign Up </h2>
 			<p class="help-block"> Enter in the following</p>
+			
+			<div class="logoutline">
 			<input placeholder="Username" name="username" type="text" autofocus class="form-control">
 			
 			
@@ -108,7 +122,7 @@
 				
 			
 			<output name="result"></output>
-			
+			</div>
 		</div>
 	</div>
 	
@@ -122,7 +136,7 @@
 	</fieldset>
 	</form>
 	
-	
+	</div>
 </body>
 </html>
 	
