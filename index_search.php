@@ -38,7 +38,7 @@
 
 
 
-<div class="ix">
+<div class="otherH">
 <h1 class = "log" style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -53,10 +53,11 @@
 
 
 <span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
-<legend>Search by Keyword</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search by Keyword</legend>
 </div>
 
 <body style = "background-color:#EDD7B2">
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
