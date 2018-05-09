@@ -1,8 +1,12 @@
 <?php
-	session_start();
+	include_once("db.php");
+
+	//session_start();
+	//got rid of this because it caused an error
+	//header already sent
 	
 	if(isset($_POST['login'])){
-		include_once("db.php");
+		
 		$username = strip_tags($_POST['username']);
 		$password = strip_tags($_POST['password']);
 		
@@ -17,16 +21,21 @@
 		
 		
 		$sql = "SELECT * FROM users WHERE username = '$username' LIMIT 1";
-		$query = mysqli_query($db,$sql);
+		$query = mysqli_query($db, $sql);
 		
 		$row = mysqli_fetch_array($query);
 		$id = $row['id'];
 		$db_password = $row['password'];
 		
+		if((strcmp($password,$db_password) ==0) && $username == "administrator"){
+			$_SESSION['username'] = $username;
+			$_SESSION['id'] = $id; 
+			header("Location: index_administrator.php");
+		}
 		if(strcmp($password,$db_password) ==0){
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $id;
-			header("Location: index.php");
+			header("Location: index_search.php");
 		}else{
 			echo "$password";
 			echo "$db_password";
@@ -35,6 +44,9 @@
 		
 	
 		
+	}
+	else{
+		//echo "not set";
 	}
 	
 
@@ -53,6 +65,7 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 	<div class="ix">
 	<h1 class="log">Welcome to SPU Book Finder</h1>
@@ -87,7 +100,7 @@
 	<div class="form-group">
 	<label class="col-md-4 control-label" for="Search Button"></label>
 		<div class="col-md-4">
-		<button name="login" class="btn btn-primary" id="Signin Button">Signin</button>
+		<button name="login" class="btn btn-primary" id="Signin Button">Sign In</button>
 		</div>
 	</div>
 	</fieldset>
@@ -139,5 +152,3 @@
 	</div>
 </body>
 </html>
-	
-
