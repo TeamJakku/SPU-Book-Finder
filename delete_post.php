@@ -43,7 +43,7 @@ $result = $mysqli->query($sql);
   <a href="logout.php">Log Out</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
 
 <script>
 function openNav() {
