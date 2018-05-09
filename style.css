@@ -1,4 +1,5 @@
-body {
+
+	body {
     font-family: "Lato", sans-serif;
 }
 
@@ -9,7 +10,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #3366cc;
+    background-color: #7F1335;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -19,7 +20,7 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #ffffff;
+    color: #FFF2CC;
     display: block;
     transition: 0.3s;
 }
@@ -46,8 +47,9 @@ body {
 }
 
 div.ix {
-    background-color: #800000;
-    height: 200px;
+    background-color: #7F1335;
+	height: 250px;
+
 }
 div.des{
     background-color: #2D3832;
@@ -72,8 +74,22 @@ div.logoutline{
 h1.log{
 	text-align: center;
 	color: #FFF2CC;
+	font-weight: bold;
 }
 
 h2.t{
 	color: #7F1335;
 }
+
+input[type=text] {
+    background-color: #FFF2CC;
+    color: black;
+}
+
+
+
+
+
+
+
+
