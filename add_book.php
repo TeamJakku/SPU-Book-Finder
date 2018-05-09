@@ -34,4 +34,4 @@ $description = addslashes($description);
 
 ?>
 
-<a href="index.php">Return to main page</a>
+<a href="index_search.php">Return to main page</a>
