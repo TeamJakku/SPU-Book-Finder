@@ -31,7 +31,8 @@
 
 
 <span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
-
+<legend style = "background-color: #7F1335; color: #FFF2CC;">My Account</legend>
+</div>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -80,7 +81,7 @@ else
 
 </div>
 
-<legend style = "background-color: #7F1335; color: #FFF2CC;">My Account</legend>
+
 <!-- Code for Sign Up Fields-->
 <div class="sechalf">
 <div id="main">
