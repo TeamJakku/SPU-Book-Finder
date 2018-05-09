@@ -53,6 +53,8 @@
 
 
 <span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
+<br>
+<br>
 <legend style = "background-color: #7F1335; color: #FFF2CC;">Search by Keyword</legend>
 </div>
 
