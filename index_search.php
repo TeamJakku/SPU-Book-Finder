@@ -56,7 +56,7 @@
 <br>
 <br>
 <br>
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Search by Keyword</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
 </div>
 
 <body style = "background-color:#EDD7B2">
@@ -81,10 +81,7 @@ function closeNav() {
 <fieldset>
 
 <!-- Form Name -->
-
-
-
-
+<legend>Search by Course Name</legend>
 
 <!-- change col-sm-N to reflect how you would like your column spacing (http://getbootstrap.com/css/#forms-control-sizes) -->
 
@@ -92,7 +89,8 @@ function closeNav() {
 <label class="col-md-4 control-label" for="selectbasic">Enter Keyword</label>
   <div class="col-md-4">
     <div class="search input-group" id="search" role="search" data-initialize="search">
-		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+		<input style = " background-color: #FFF2CC; color: black;"name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+
       <span class="input-group-btn">
         <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
           <span class="glyphicon glyphicon-search"></span>
@@ -124,7 +122,7 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select name="selectbasic" class="form-control input-md" id="selectbasic">
+    <select style = " background-color: #FFF2CC; color: black;" name="selectbasic" class="form-control input-md" id="selectbasic">
       <option value="CSC 143">Data Structures Java</option>
       <option value="CSC 3430">Algorithm Design</option>
       <option value="CSC 2430">Data Structures C++</option>

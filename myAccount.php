@@ -30,7 +30,7 @@
 </div>
 
 
-<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
 <br>
 <br>
 <br>

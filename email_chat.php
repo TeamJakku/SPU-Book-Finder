@@ -1,14 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Message Page</title>
-		<link rel="stylesheet" href="style.css">
-
-<style type="text/css">
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -66,9 +61,10 @@ $(document).ready(function(){
 
 
 
-<body>
+<body style = "background-color:#EDD7B2;">
 
-<h1>SPU Book Finder</h1>
+<div class="otherH">
+<h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
@@ -79,8 +75,10 @@ $(document).ready(function(){
   <a href="logout.php">Log Out</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
-
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -95,7 +93,11 @@ function closeNav() {
 </script>
 
 <!-- Form Name -->
-<legend>Message Page</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Message Page</legend>
+ </head>
+<body>
+<div class="sechalf">
+
 
 <!--the message form-->
 <div id="main">
@@ -135,9 +137,9 @@ function closeNav() {
             
                 <label class="col-md-4 control-label">Message</label>
             <div class="col-md-4">
-                <textarea name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here"></textarea> 
+                <textarea style = "background-color: #FFF2CC;" name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here"></textarea> 
            
-                <input class="btn btn-primary" type="submit" name="submit" value="Send">
+                <input style = "background-color: #7F1335;" class="btn btn-primary" type="submit" name="submit" value="Send">
             </div>
             </div>
         </fieldset>
