@@ -48,45 +48,21 @@ function closeNav() {
 <?php
 include_once ("db_connection.php");
 
-//$username = strip_tags($_POST['username']);
-//$username = stripslashes($username);
-//$username = mysqli_real_escape_string($mysqli, $username);
-$username = mysqli_real_escape_string($mysqli, $_GET['username']);
-echo $_SESSION['username'];
+$_SESSION['id'] = $id;
 
-//$email = strip_tags($_POST['email']);
-//$email = stripslashes($email);
-$email = mysqli_real_escape_string($mysqli, $_GET['email']);
+$sql = "SELECT username FROM users";
+$result = $mysqli->query($sql);
 
-
-if($mysqli->connect_errno){
-	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
-}
-// echo $mysqli->host_info. "\n";
-
-$sql = "SELECT username, email FROM users WHERE username = '$username'";
-//$result = $mysqli->query($sql);
-$result = mysqli_query($mysqli, $sql);
-
-if (!$result && mysqli_num_rows($result) != 1)
-    {
-      echo "Error: Data not found..";
-    }
-    $test = mysqli_fetch_array($result);
-    $username = $test['username'];
-	echo $username;
-?>
-
-<?php
-
-if($result->num_rows>0){
+if($result->num_rows>0)
+{
 	//output data of each row
-	while($row = $result->fetch_assoc()){
-		
-		echo "<h3>$row[title]</h3>";
-	  echo "<div><p>Username: $row[username]</p><p>Email: $row[email]</p>";
+	while($row = $result->fetch_assoc())
+	{
+		echo "<div><p>Username: $row[username]</p>";
 	}
-}else{
+}
+else
+{
 	echo "0 results";
 }
 ?>
