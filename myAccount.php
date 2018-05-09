@@ -31,6 +31,8 @@
 
 
 <span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
 <legend style = "background-color: #7F1335; color: #FFF2CC;">My Account</legend>
 </div>
 <script>
