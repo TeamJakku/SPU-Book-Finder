@@ -73,6 +73,9 @@ else
 }
 ?>
 
+<?php
+
+?>
 <body style = "background-color:#EDD7B2;">
 
 </div>
