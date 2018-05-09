@@ -34,12 +34,12 @@
 
 </head>
 
-<body style = "background-color:#EDD7B2;">
 
 
 
 
-<h1 class = "log">SPU Book Finder</h1>
+<div class="ix">
+<h1 class = "log" style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
@@ -51,8 +51,10 @@
 </div>
 
 
-<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
 
+<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
+</div>
+<body style = "background-color:#EDD7B2">
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
