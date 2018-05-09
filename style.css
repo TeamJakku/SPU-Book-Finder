@@ -86,6 +86,10 @@ input[type=text] {
     color: black;
 }
 
+input[type=password] {
+    background-color: #FFF2CC;
+    color: black;
+}
 
 
 
