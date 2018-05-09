@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body style = "background-color:#EDD7B2;">
 
 
 
