@@ -53,6 +53,7 @@
 
 
 <span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
+<legend>Search by Keyword</legend>
 </div>
 <body style = "background-color:#EDD7B2">
 <script>
@@ -75,7 +76,7 @@ function closeNav() {
 <fieldset>
 
 <!-- Form Name -->
-<legend>Search by Keyword</legend>
+
 
 
 
