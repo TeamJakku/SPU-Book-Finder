@@ -1,22 +1,50 @@
+<html>  
+
+<html lang="en">  
+
 <head>
+<title>Search All Books</title>
+
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="jquery-ui.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Accordion - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script>
   $( function() {
     $( "#accordion" ).accordion();
   } );
   </script>
+
+<div class="otherH">
+<h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
+</div>
+
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search All Books</legend>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+} 
+</script>
 </head>
 
+<body style = "background-color:#EDD7B2;">
 <?php
 include "db_connection.php";
 
-echo"<h2>All books in database</h2>";
+//echo"<h2>All books in database</h2>";
 
 if($mysqli->connect_errno){
 	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
@@ -25,6 +53,8 @@ if($mysqli->connect_errno){
 
 $sql = "SELECT ISBNum, title, author, price, description, condition_of_book  FROM book_table";
 $result = $mysqli->query($sql);
+
+
 ?>
 
 <div id="accordion">
@@ -42,4 +72,8 @@ if($result->num_rows>0){
 	echo "0 results";
 }
 ?>
+
+
 </div>
+<a href="index_search.php">Return to main page</a>
+</body>
