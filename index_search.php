@@ -15,7 +15,7 @@
 <html>
 <head>
 
-  <title>Welcome to SPU Book Finder</title>
+  <title>Search Books</title>
   <link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content= "width-device-width, initial-scale=1">
@@ -51,7 +51,7 @@
 </div>
 
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776; Menu</span>
 
 <script>
 function openNav() {
@@ -86,7 +86,7 @@ function closeNav() {
     <div class="search input-group" id="search" role="search" data-initialize="search">
 		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
       <span class="input-group-btn">
-        <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -123,7 +123,7 @@ function closeNav() {
       <option value="CSC 3150">System Design </option> 
     </select>
 	      <span class="input-group-btn">
-           <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+           <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -149,7 +149,7 @@ function closeNav() {
   <div class="search input-group" id="search" role="search" data-initialize="search">
     <span name="selectbasic" id="selectbasic"></span>
         <span class="input-group-btn">
-           <button name="singlebutton" class="btn btn-primary" id="singlebutton">Display</button>
+           <button style = "background-color: #7F1335;" name="singlebutton" class="btn btn-primary" id="singlebutton">Display</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
