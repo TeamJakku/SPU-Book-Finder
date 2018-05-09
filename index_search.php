@@ -18,8 +18,6 @@
   <title>Welcome to SPU Book Finder</title>
   <link rel="stylesheet" href="style.css">
 
-
-
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
 
@@ -41,7 +39,7 @@
 
 
 
-<h1>SPU Book Finder</h1>
+<h1 class = "log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
