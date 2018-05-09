@@ -48,16 +48,22 @@ function closeNav() {
 <?php
 include_once ("db_connection.php");
 
-$_SESSION['id'] = $id;
+$username = strip_tags($_GET['username']);
+$username = stripslashes($username);
+$username = mysqli_real_escape_string($mysqli, $username);
 
-$sql = "SELECT username FROM users";
-$result = $mysqli->query($sql);
+$sql = "SELECT * FROM users WHERE username ='.$_SESSION[username].' LIMIT 1";
+
+$query = mysqli_query($mysqli, $sql);
+$row = mysqli_fetch_array($query);
+$id = $row['id'];
 
 if($result->num_rows>0)
 {
 	//output data of each row
 	while($row = $result->fetch_assoc())
 	{
+		//$_SESSION['username'] = $row['username'];
 		echo "<div><p>Username: $row[username]</p>";
 	}
 }
@@ -67,7 +73,7 @@ else
 }
 ?>
 
-<body>
+<body style = "background-color:#EDD7B2;">
 
 </div>
 
