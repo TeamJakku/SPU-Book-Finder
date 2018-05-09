@@ -91,6 +91,10 @@ input[type=password] {
     color: black;
 }
 
+textarea{
+    background-color: #FFF2CC;
+    color: black;
+}
 
 
 
