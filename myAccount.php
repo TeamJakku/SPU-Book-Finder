@@ -1,3 +1,4 @@
+
 <html>  
 
 <html lang="en">  
@@ -67,14 +68,13 @@
 <h1>SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index.php">Search</a>
+  <a href="index_search.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>
-
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 

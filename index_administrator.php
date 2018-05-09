@@ -1,23 +1,15 @@
-<?php
-	
-	
-	//session_start();
-	//if(!isset($_SESSION['id'])){
-		//header("Location: login.php");
-	//}
-
-	//include "db.php";
-
-
-
-?>
-
 <html>
 <head>
-
   <title>Welcome to SPU Book Finder</title>
 
+<?php
+//session_start();
 
+//include "db_connection.php";
+
+//include "login.php"
+
+?>
 
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
@@ -88,16 +80,18 @@
 
 
 
-<h1>SPU Book Finder</h1>
+<h1>Welcome Administrator</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
+    <a href="add_course.php">Add Course</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>
+
 
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
@@ -114,7 +108,18 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 } 
 </script>
+<?php
 
+	session_start();
+	if(!isset($_SESSION['id'])){
+		header("Location: login.php");
+	}
+
+include "db_connection.php";
+
+
+
+?>
 <div id="main">
 
 <!-- search books with key workd -->

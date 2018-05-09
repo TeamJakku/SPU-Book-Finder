@@ -67,14 +67,14 @@
 </head>
 
 <body>
-	<div class="ix">
+	<div style = "background-color: #7F1335;" name="background block" class="ix">
 	<h1 class="log">Welcome to SPU Book Finder</h1>
 	</div>
 
 	
 	<div class="des">
 	<p class="desfont">A web-based application that facilitates the process of purchasing and selling textbooks </p>
-	</div>
+	
 	
 	<div class="sechalf">
 	<form class = "form-horizontal" action="login.php" method="post" enctype="multipart/form-data">
@@ -100,7 +100,7 @@
 	<div class="form-group">
 	<label class="col-md-4 control-label" for="Search Button"></label>
 		<div class="col-md-4">
-		<button name="login" class="btn btn-primary" id="Signin Button">Sign In</button>
+		<button style = "background-color: #7F1335;" name="login" class="btn btn-primary" id="Signin Button">Sign In</button>
 		</div>
 	</div>
 	</fieldset>
@@ -124,25 +124,22 @@
 			<div class="logoutline">
 			<input placeholder="Username" name="username" type="text" autofocus class="form-control">
 			
-			
-
 			<input placeholder="E-mail Adress" name="email" type="text" class="form-control">
-			
-			  
+		
 			<input type="password" name="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
 				
 			<input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
-				
-			
-			<output name="result"></output>
 			</div>
+
+			<output name="result"></output>
+			
 		</div>
 	</div>
 	
 	<div class="form-group">
 	<label class="col-md-4 control-label" for="Search Button"></label>
 		<div class="col-md-4">
-		<button name="register" class="btn btn-primary" id="Register button">Register</button>
+		<button style = "background-color: #7F1335;" name="register" class="btn btn-primary" id="Register button">Register</button>
 		</div>
 	</div>
 	
