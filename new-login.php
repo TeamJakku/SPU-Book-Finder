@@ -54,6 +54,14 @@
 
 <html>
 <head>
+	<style>
+		.statusmsg{
+			font-size: 12px; /* Set message font size  */
+		    padding: 3px; /* Some padding to make some more space for our text  */
+		    background: #EDEDED; /* Add a background color to our status message   */
+		    border: 1px solid #DFDFDF; /* Add a border arround our status message   */
+		}
+	</style>
 	<title>SPU Sign Up/Login</title>
 	<link rel="stylesheet" href="style.css">
 	<!-- Latest compiled and minified CSS -->
@@ -109,7 +117,7 @@
 	
 	
 	
-	<form class="form-horizontal" oninput ="result.value=!!password_confirm.value&&(password.value==password_confirm.value)?'Match':'Nope!'" action="register.php" method="post" enctype="multipart/form-data">
+	<form class="form-horizontal" oninput ="result.value=!!password_confirm.value&&(password.value==password_confirm.value)?'Match':'Nope!'" action="new-register.php" method="post" enctype="multipart/form-data">
 	<fieldset>
 	
 
@@ -119,6 +127,11 @@
 		<label class="col-md-4 control-label" for="register"></label>
 		<div class="col-md-5">
 		<h2 class="t">Sign Up </h2>
+			<?php
+				if(isset($msg)){  // Check if $msg is not empty
+	        		echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
+	    		} 
+    		?>
 			<p class="help-block"> Enter in the following</p>
 			
 			<div class="logoutline">

@@ -11,7 +11,7 @@ $from = $_POST['from'];
 
 
 $to_user = $_POST['to'];
-$sql = "SELECT email  FROM USER WHERE username LIKE '%". $to_user ."%'";
+$sql = "SELECT email  FROM users WHERE username LIKE '%". $to_user ."%'";
 $result = $mysqli->query($sql);
 if(mysqli_num_rows($result) > 0 ){
 	$row = mysqli_fetch_row($result); 

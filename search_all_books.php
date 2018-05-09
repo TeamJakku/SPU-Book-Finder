@@ -17,10 +17,11 @@
 include "db_connection.php";
 
 echo"<h2>All books in database</h2>";
+
 if($mysqli->connect_errno){
 	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
 }
-echo $mysqli->host_info. "\n";
+// echo $mysqli->host_info. "\n";
 
 $sql = "SELECT ISBNum, title, author, price, description, condition_of_book  FROM book_table";
 $result = $mysqli->query($sql);
@@ -35,7 +36,7 @@ if($result->num_rows>0){
 	while($row = $result->fetch_assoc()){
 		
 		echo "<h3>$row[title]</h3>";
-		echo "<div><p>$row[author]</p><p>$row[ISBNum]</p><p>$row[description]</p><p>$row[condition_of_book]</p></div>";
+	  echo "<div><p>Author: $row[author]</p><p>ISBN: $row[ISBNum]</p><p>Condition: $row[condition_of_book]</p><p>Description: $row[description]</p><p>Sold by: $row[user_id]</p><p>Price: $$row[price].00</p><button>Message</button></div>";
 	}
 }else{
 	echo "0 results";

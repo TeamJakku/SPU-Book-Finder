@@ -168,12 +168,14 @@ only screen and (max-width: 760px),
 <h1>SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index.php">Search</a>
+  <a href="index_search.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>
+
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
