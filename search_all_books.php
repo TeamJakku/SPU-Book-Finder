@@ -22,6 +22,21 @@
 
 <div class="otherH">
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="index_search.php">Search</a>
+  <a href="add_book_form.php">Post</a>
+  <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
+  <a href="myAccount.php">My Account</a>
+  <a href="logout.php">Log Out</a>
+</div>
+
+
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
 </div>
 
 <legend style = "background-color: #7F1335; color: #FFF2CC;">Search All Books</legend>
@@ -75,5 +90,5 @@ if($result->num_rows>0){
 
 
 </div>
-<a href="index_search.php">Return to main page</a>
+<a href="index_search.php">Return to search page</a>
 </body>
