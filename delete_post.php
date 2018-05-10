@@ -1,11 +1,57 @@
-<html>
-
-<html lang="en">  
-
 <head>
-<title>Delete Post</title>
 <meta name="viewport" content= "width-device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+<style>
+
+	body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #3366cc;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #ffcc99;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+</style> 
+  
   
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,41 +64,33 @@
 </head>
 
 <?php
-//session_start();
 include "db_connection.php";
 
-//echo"<h2>All books in database</h2>";
+echo"<h2>All books in database</h2>";
 if($mysqli->connect_errno){
 	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
 }
 
 
-
+session_start();
 $user_id = $_SESSION['id'];
 
 $sql = "SELECT *  FROM book_table WHERE user_id = $user_id";
 $result = $mysqli->query($sql);
 ?>
-<body style = "background-color:#EDD7B2;">
-
-<div class="otherH">
-<h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
+<body>
+<h1>SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
+  <a href="index.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
-  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>
 
-<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
-<br>
-<br>
-<br>
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Delete</legend>
-</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
 <script>
 function openNav() {
@@ -67,7 +105,6 @@ function closeNav() {
 } 
 </script>
 
-<div class="sechalf">
 <div id="main">
 <!-- search books by selected course  -->
 <form class="form-horizontal" action="drop_book.php" onsubmit="return confirm('Are you sure you want to delete this book');">
@@ -81,7 +118,7 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">My Books</label>
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select style = " background-color: #FFF2CC; color: black;" name="selectbasic" class="form-control input-md" id="selectbasic">
+    <select name="selectbasic" class="form-control input-md" id="selectbasic">
 
 <?php while($row = mysqli_fetch_array($result)):;?>
 		<option value="<?php echo $row['BookID'];?>"><?php echo $row['BookTitle'];?></option>
@@ -92,7 +129,7 @@ function closeNav() {
 
 			</select>
 	      <span class="input-group-btn">
-           <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Delete</button>
+           <button name="Search Button" class="btn btn-primary" id="Search Button">Delete</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>

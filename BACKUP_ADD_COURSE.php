@@ -111,7 +111,7 @@ function closeNav() {
 <div class="form-group">
   <label class="col-md-4 control-label" for="course_title">Course Title:</label>  
   <div class="col-md-4">
-  <input name="course_title" class="form-control input-md" id="course_title" type="text" placeholder="Algorithm Design">
+  <input name="course_title" class="form-control input-md" id="course_title" type="text" placeholder="ALgorithm Design">
   <span class="help-block">Enter Course Title</span>  
   </div>
 </div>
@@ -134,8 +134,6 @@ function closeNav() {
   </div>
 </div>
 
-
-<h3>Book Required for this course </h3>
 <!-- ISBN-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="isbn">ISBN:</label>  

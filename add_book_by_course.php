@@ -1,13 +1,24 @@
 <?php
 include "db_connection.php";
-$isbn = $_POST["isbn"];
-$title = $_POST["Title"];
-$author = $_POST["author"];
-$price = $_POST["price"];
+
 $course = $_POST["course"];
+$bookID = $_POST["book-list"];
 $edition = $_POST["edition"];
 $condition = $_POST["condition"];
 $description = $_POST["description"];
+$price = $_POST["price"];
+
+
+
+$sql = "SELECT * FROM `book_required` WHERE courseNum = '$course'  AND BookID = '$bookID' LIMIT 1";
+$result = $mysqli->query($sql);
+
+
+		while($row = mysqli_fetch_array($result)){
+		    $isbn = $row["ISBNum"];
+			$title = $row["BookTitle"];
+			$author = $row["Author"];
+		}
 session_start();
 $user_id = $_SESSION['id'];
 //echo "$user_id";
@@ -40,9 +51,6 @@ $description = addslashes($description);
  $result = $mysqli->query($sql) or die("an error has occured");
 
  include "search_all_books.php";
- 
- 
-
 
 ?>
 

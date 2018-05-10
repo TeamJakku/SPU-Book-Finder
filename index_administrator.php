@@ -83,15 +83,13 @@
 <h1>Welcome Administrator</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
-    <a href="add_course.php">Add Course</a>
+  <a href="index.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
-  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="add_course.php">Add Course</a>
   <a href="logout.php">Log Out</a>
 </div>
-
 
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
@@ -171,10 +169,25 @@ include "db_connection.php";
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
     <select name="selectbasic" class="form-control input-md" id="selectbasic">
-      <option value="CSC 143">Data Structures Java</option>
-      <option value="CSC 3430">Algorithm Design</option>
-      <option value="CSC 2430">Data Structures C++</option>
-      <option value="CSC 3150">System Design </option> 
+	
+		<option value="">Select Course</option>
+		<?php
+		include "db_connection.php";
+
+	if($mysqli->connect_errno){
+		echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
+	}
+
+
+
+
+	$sql = "SELECT * FROM `course_table` ";
+	$result = $mysqli->query($sql);
+	
+	while($row = mysqli_fetch_array($result)):;?>
+		<option value="<?php echo $row['CourseNum'];?>"><?php echo $row['CourseTitle'];?><?php echo "  (".$row['CourseNum'].")";?></option>
+		<?php endwhile;?>
+
     </select>
 	      <span class="input-group-btn">
            <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>

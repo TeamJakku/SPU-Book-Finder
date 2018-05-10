@@ -1,11 +1,10 @@
 <?php
-	include_once("db.php");
 	if(isset($_SESSION['id'])){
 		header("Location: index.php");
 	}
 	
 	if(isset($_POST['register'])){
-		
+		include_once("db.php");
 		
 		$username = strip_tags($_POST['username']);
 		$password = strip_tags($_POST['password']);
@@ -40,7 +39,7 @@
 				return;
 			}
 			if($username == ""){
-				echo "Please enter a username";
+				echo "please enter a usernam";
 				return;
 			}
 			
