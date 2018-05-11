@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>Search by Keyword</title>
+  <title>Post Deleted</title>
 
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
@@ -13,11 +13,7 @@
   
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>
+ 
 
   <div class="otherH">
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
@@ -37,7 +33,7 @@
 <br>
 
 </div>
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Search by Course</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Post Deleted</legend>
 </div>
 <script>
 function openNav() {
@@ -51,47 +47,30 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 } 
 </script>
-
 </head>
 
 <body style = "background-color:#EDD7B2;">
-
+	<br>
 <?php
 include "db_connection.php";
-$keywordfromform = $_GET["keyword"];
+$bookID = $_GET["selectbasic"];
 
-echo"<h2>Show all books with the word $keywordfromform in title</h2>";
-$sql = "SELECT *  FROM book_table WHERE BookTitle LIKE '%".$keywordfromform ."%'";
+echo"<h3>Selected Book ID $bookID </h3>";
+
+$sql = "DELETE FROM `book_table` WHERE `book_table`.`BookID` ='$bookID'";
 $result = $mysqli->query($sql);
 
-    ?>
+if ($result === TRUE) {
+    echo "Post Deleted Successfully";
+} else {
+    echo "Error Deleting Record: " . $conn->error;
+}
 
-<div id="accordion">
 
-<?php
-    
-    if($result->num_rows>0){
-        //output data of each row
-        while($row = $result->fetch_assoc()){
-            $id = $row[user_id];
-            echo "Contact user: ";
-            $sql_get_user_info = "SELECT username FROM users WHERE user_id = ".$id."";
-            $res = $mysqli->query($sql_get_user_info);
-            if($res->num_rows>0){
-                while($rd=$res->fetch_assoc()){
-                    echo "$rd[username]";
-                    $username = $rd[username];
-                }
-            }
-            else
-                echo "error trying to get user information";
-            echo "<h3>$row[BookTitle]</h3>";
-            echo "<div><p>Author: $row[Author]</p><p>ISBN Number: $row[ISBNum]</p><p>Course: $row[CourseNum]</p><p>Condition: $row[condition]</p><p>Price: $row[Price].00</p><p>Description: $row[Description]</p><p>Seller: $username</p></div>";
-        }
-    }else{
-        echo "0 results";
-    }
-    ?>
-</div>
-<a href="index_search.php">Return to search page</a>
+
+?>
+<br>
+<br>
+<br>
+<a href="delete_post.php">Back</a>
 </body>

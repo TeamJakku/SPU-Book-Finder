@@ -67,17 +67,15 @@
 </head>  
 
 <body>
-<h1>SPU Book Finder</h1>
+<h1>Add course form</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
+  <a href="index.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
-  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
 </div>
-
 
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
@@ -113,7 +111,7 @@ function closeNav() {
 <div class="form-group">
   <label class="col-md-4 control-label" for="course_title">Course Title:</label>  
   <div class="col-md-4">
-  <input name="course_title" class="form-control input-md" id="course_title" type="text" placeholder="ALgorithm Design">
+  <input name="course_title" class="form-control input-md" id="course_title" type="text" placeholder="Algorithm Design">
   <span class="help-block">Enter Course Title</span>  
   </div>
 </div>
@@ -136,6 +134,8 @@ function closeNav() {
   </div>
 </div>
 
+
+<h3>Book Required for this course </h3>
 <!-- ISBN-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="isbn">ISBN:</label>  

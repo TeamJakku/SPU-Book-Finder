@@ -8,6 +8,7 @@
 
 	//include "db.php";
 
+//<link rel="stylesheet" href="style.css">
 
 
 ?>
@@ -15,60 +16,11 @@
 <html>
 <head>
 
-  <title>Welcome to SPU Book Finder</title>
-
-
+  <title>Search Books</title>
+    <link rel="stylesheet" href="style.css">
 
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
-
-	body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #3366cc;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #ffcc99;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
 
 </style>
 
@@ -83,12 +35,8 @@
 
 </head>
 
-<body>
-
-
-
-
-<h1>SPU Book Finder</h1>
+<div class="otherH">
+<h1 class = "log" style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
@@ -100,7 +48,15 @@
 </div>
 
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<span style="font-size:30px; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
+</div>
+
+<body style = "background-color:#EDD7B2">
 
 <script>
 function openNav() {
@@ -124,18 +80,16 @@ function closeNav() {
 <!-- Form Name -->
 <legend>Search by Keyword</legend>
 
-
-
-
 <!-- change col-sm-N to reflect how you would like your column spacing (http://getbootstrap.com/css/#forms-control-sizes) -->
 
 <div class="form-group">
 <label class="col-md-4 control-label" for="selectbasic">Enter Keyword</label>
   <div class="col-md-4">
     <div class="search input-group" id="search" role="search" data-initialize="search">
-		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+		<input style = " background-color: #FFF2CC; color: black;" name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+
       <span class="input-group-btn">
-        <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -161,23 +115,38 @@ function closeNav() {
 <legend>Search by Course Name</legend>
 
 <!-- Select Basic -->
+<!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
-	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select name="selectbasic" class="form-control input-md" id="selectbasic">
-      <option value="CSC 143">Data Structures Java</option>
-      <option value="CSC 3430">Algorithm Design</option>
-      <option value="CSC 2430">Data Structures C++</option>
-      <option value="CSC 3150">System Design </option> 
+  <div class="search input-group" id="search" role="search" data-initialize="search">
+       <select style = " background-color: #FFF2CC; color: black;" name="selectbasic" class="form-control input-md" id="selectbasic">
+    <?php
+    include "db_connection.php";
+
+  if($mysqli->connect_errno){
+    echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
+  }
+
+
+
+
+  
+  $sql = "SELECT * FROM `course_table` ";
+  $result = $mysqli->query($sql);
+  
+  while($row = mysqli_fetch_array($result)):;?>
+    <option value="<?php echo $row['CourseNum'];?>"><?php echo $row['CourseTitle'];?><?php echo "  (".$row['CourseNum'].")";?></option>
+    <?php endwhile;?>
+
     </select>
-	      <span class="input-group-btn">
-           <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <span class="input-group-btn">
+           <button style = "background-color: #7F1335;" name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
       </span>
-	</div>
+  </div>
   </div>
 </div>
 
@@ -198,7 +167,7 @@ function closeNav() {
   <div class="search input-group" id="search" role="search" data-initialize="search">
     <span name="selectbasic" id="selectbasic"></span>
         <span class="input-group-btn">
-           <button name="singlebutton" class="btn btn-primary" id="singlebutton">Search</button>
+           <button style = "background-color: #7F1335;" name="singlebutton" class="btn btn-primary" id="singlebutton">Display</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -224,7 +193,7 @@ function closeNav() {
 
 //include "search_keyword.php";
 
-$mysqli->close();
+//$mysqli->close();
 
 
 ?>

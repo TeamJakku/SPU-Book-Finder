@@ -1,159 +1,12 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Message Page</title>
-
-<style type="text/css">
-
-
-textarea #description{
-    height: 300px;
-    width: auto;
-}
-
-body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #3366cc;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #ffcc99;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-.table-wrapper {
-        background: #fff;
-        padding: 20px 25px;
-        margin: 30px auto;
-        border-radius: 3px;
-        box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    }
-    .table-title {
-        color: #fff;
-        background: #40b2cd;
-        padding: 16px 25px;
-        margin: -20px -25px 10px;
-        border-radius: 3px 3px 0 0;
-    }
-    .table-title h2 {
-        margin: 5px 0 0;
-        font-size: 24px;
-    }
-
-    table.table {
-        table-layout: fixed;
-        margin-top: 15px;
-    }
-    table.table tr th, table.table tr td {
-        border-color: #e9e9e9;
-    }
-    table.table th i {
-        font-size: 13px;
-        margin: 0 5px;
-        cursor: pointer;
-    }
-    table.table th:first-child {
-        width: 60px;
-    }
-    table.table th:last-child {
-        width: 120px;
-    }
-    table.table td a {
-        color: #a0a5b1;
-        display: inline-block;
-        margin: 0 5px;
-    }
-    table.table td a.view {
-        color: #03A9F4;
-    }
-    table.table td a.edit {
-        color: #FFC107;
-    }
-    table.table td a.delete {
-        color: #E34724;
-    }
-    table.table td i {
-        font-size: 19px;
-    }
-
-    @media
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
-
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr { border: 1px solid #ccc; }
-
-    td {
-        /* Behave  like a "row" */
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-    }
-
-    td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-    }
-
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -207,13 +60,29 @@ $(document).ready(function(){
 });
 </script>
 
+ <!--Code to display username of user so they dont have to input it themselves -->
+<?php
+include_once ("db_connection.php");
+
+$username = $_SESSION['username'];
+
+$query = "SELECT * FROM users WHERE username='$username'";
+$result = mysqli_query($mysqli,$query);
+while($row = mysqli_fetch_array($result))
+{
+    $email = $row['email'];
+}
+
+?>
+
     </head>
 
 
 
-<body>
+<body style = "background-color:#EDD7B2;">
 
-<h1>SPU Book Finder</h1>
+<div class="otherH">
+<h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
@@ -224,8 +93,10 @@ $(document).ready(function(){
   <a href="logout.php">Log Out</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>
-
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -240,7 +111,11 @@ function closeNav() {
 </script>
 
 <!-- Form Name -->
-<legend>Message Page</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Message Page</legend>
+ </head>
+<body>
+<div class="sechalf">
+
 
 <!--the message form-->
 <div id="main">
@@ -250,7 +125,8 @@ function closeNav() {
             
                 <label class="col-md-4 control-label">From </label>
             <div class="col-md-4">
-                <input type="text" class="form-control input-md" id="keyword" name="from" placeholder="Sender's Username"/>
+                <input type="text" class="form-control input-md" id="keyword" name="from" placeholder="Sender's Username"/> 
+                 <!--<p style = " background-color: #FFF2CC; color: black;" type="text" class="form-control input-md" id="keyword" name="from"> <?php echo $_SESSION['username'];?> </p>-->
             </div>
             </div>
         </fieldset>
@@ -280,9 +156,9 @@ function closeNav() {
             
                 <label class="col-md-4 control-label">Message</label>
             <div class="col-md-4">
-                <textarea name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here"></textarea> 
+                <textarea style = "background-color: #FFF2CC;" name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here"></textarea> 
            
-                <input class="btn btn-primary" type="submit" name="submit" value="Send">
+                <input style = "background-color: #7F1335;" class="btn btn-primary" type="submit" name="submit" value="Send">
             </div>
             </div>
         </fieldset>
