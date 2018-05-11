@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 session_start();
 ?>
 <html>  
@@ -6,7 +7,7 @@ session_start();
 <html lang="en">  
 
 <head>
-<title>My Account</title>
+    <title>My Account</title>
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 
@@ -38,6 +39,7 @@ session_start();
 <br>
 <legend style = "background-color: #7F1335; color: #FFF2CC;">My Account</legend>
 </div>
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -50,84 +52,66 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 } 
 </script>
-
 <?php
-include_once ("db_connection.php");
-
-//echo"Here: ";
-//echo $_SESSION['username'];
-//echo $_SESSION['email'];
-
-$username = $_SESSION['username'];
-//$username = $_POST['username'];
-
-$query = "SELECT * FROM users WHERE username='$username'";
-$result = mysqli_query($mysqli,$query);
-while($row = mysqli_fetch_array($result))
-{
-	$email = $row['email'];
-	//echo "Here: ";
-	//echo $row['email'];
-}
-//echo "Now Here: ";
-//echo $email;
+include "db_connection.php";
 
 
-//echo"<h2>All books in database</h2>";
-/*
 if($mysqli->connect_errno){
-    echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
+	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
 }
 
-//session_start();
-//$user_id = $_SESSION['id'];
+$user_id = $_SESSION['id'];
 
-$sql = "SELECT *  FROM users WHERE username = $username";
+$sql = "SELECT *  FROM users WHERE user_id = $user_id";
+$result = $mysqli->query($sql);
 
-$result = $mysqli->query($sql); //error on this
-
-$count = count($result);
-
-if(!empty($count))
-    while($row = mysqli_fetch_array($result))
-*/
 ?>
-
 <body style = "background-color:#EDD7B2;">
-
 </div>
-
-
-<!-- Code for Sign Up Fields-->
 <div class="sechalf">
 <div id="main">
+
+
+<legend>My Account Information</legend>
+<!-- Code for Sign Up Fields-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="register"></label>
         <div class="col-md-5">
             <label for="inputPassword" class="control-label">Username is:</label>
-            
-           <!-- <?php //while($row = mysqli_fetch_array($result)):;?> -->
-
-            <p placeholder="Username" name="username" type="text" autofocus class="form-control"> <?php echo $_SESSION['username'];?> </p>
+			
+			<?php while($row = mysqli_fetch_array($result)):;?>
+			
+            <p placeholder="Username" style = " background-color: #FFF2CC; color: black;" name="username" type="text" autofocus class="form-control"><?php echo $row['username'];?></p>
             <label for="inputPassword" class="control-label">E-mail address is:</label>
-            <p placeholder="E-mail Adress" name="email" type="text" class="form-control"><?php echo $email;?></p>
+            <p placeholder="E-mail Adress" style = " background-color: #FFF2CC; color: black;" name="email" type="text" class="form-control"><?php echo $row['email'];?></p>
             <?php 
-                $user_password = $row['password'];
-            ?>
-            <!--<?php //endwhile;?> -->
+				$user_password = $row['password'];
+			?>
+			<?php endwhile;?>
+            <!-- Code for Password-->
+            
 
-              </div>
+                </div>
             
             <output name="result"></output>
         
         </div>
-
-            <!-- Code for Password-->
-            <form action="change_password.php" oninput ="result.value=!! new_password.value&&(new_password.value==new_password_confirmed.value)?'Match':'Passwords do not match!'" action="register.php" method="post" enctype="multipart/form-data">
-
-            <div class="form-group">
-
-            <label for="inputPassword" class="control-label">Change Password</label>
+    
+    
+    <!-- Code for Edit Fields Button-->
+	<form action="change_password.php" oninput ="result.value=!! new_password.value&&(new_password.value==new_password_confirmed.value)?'Match':'Passwords do not match!'" action="register.php" method="post" enctype="multipart/form-data">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="sechalf">
+<div id="main">
+<legend>Change Password</legend>
+    <div class="form-group">
+        
+		<label for="inputPassword" class="control-label"></label>
                 
                 <div class="help-block"></div>
                     
@@ -143,34 +127,26 @@ if(!empty($count))
 
                     <div class="form-group col-sm-6">
                         <input type="password" name="new_password_confirmed" data-minlength="6" class="form-control" id="new_password_confirmed" placeholder="Confirm New Password" required>
-                        
+					</div>	
+                </div>
+            </div>
                          <output name="result"></output>
-        
-        
-        </div>
-    </div>
-    
-    <!-- Code for Edit Fields Button-->
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="Search Button"></label>
+						
+                    </div>
+                </div>
+
+	 <div class="form-group">				
+    <label class="col-md-4 control-label" for="Search Button"></label>
         <div class="col-md-4">
         <button style = "background-color: #7F1335;" name="register" class="btn btn-primary" id="Register button">Save</button>
-
         </div>
     </div>
     
-<!--    <div class="form-group">
-        <label class="col-md-4 control-label" for="Search Button"></label>
-        <div class="col-md-4">
-        <button name="register" class="btn btn-primary" id="Register button">Save</button>
-        </div>
-    </div>
--->
-    </div>
+</div>
     </fieldset>
     </form>
-</div>  
-
+  
+</div>
 </body>  
 
 </html>
