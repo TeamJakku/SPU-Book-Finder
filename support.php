@@ -128,7 +128,7 @@ function closeNav() {
 <legend id = "post">Posting for a Book</legend>
  <label>There are two options:</label>
  <ul>
-    <li> <a href="#postc">Post by Course/a></li>
+    <li> <a href="#postc">Post by Course</a></li>
     <li> <a href="#postm">Post Manually</a></li>
  </ul>
 
