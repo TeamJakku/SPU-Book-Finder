@@ -61,7 +61,7 @@ function closeNav() {
   <h2 id= "top">What Can We Help You With?</h2>
   <ul>
     <li> <a href="#search">Searching for a Book </a></li>
-    <li> <a href="#post">Posting for a Book </a></li>
+    <li> <a href="#post">Posting a Book </a></li>
     <li> <a href="#delete">Deleting a Book Post </a></li>
     <li> <a href="#message">Messaging Users </a></li>
     <li> <a href="#account">My Account Page </a></li>
@@ -184,7 +184,7 @@ function closeNav() {
     <li> Click the drop down arrows</li>
     <li> Select book you wish to delete</li>
     <li> Click on the "Delete" button </li>
-    <li> Your book post has been officially delete from our database!</li>
+    <li> Your book post has been officially deleted from our database!</li>
  </ol>
 
  <a href="#top"> Return to Top of Page </a>
@@ -192,7 +192,7 @@ function closeNav() {
   <br>
 
 <legend id = "message">Messaging Users</legend>
-<label>The Message Page, is used to users contact one another: </label>
+<label>The Message Page, is used for users to contact one another: </label>
 <ol>
   <li> Go to the: <a href="email_chat.php">Message Page</a></li>
   <li> Nothing to be done by user for the "From" Textbox. The "From" Textbox, will always be filled with the current user's credentials.</li>
