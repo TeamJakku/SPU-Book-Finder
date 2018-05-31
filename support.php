@@ -67,6 +67,7 @@ function closeNav() {
     <li> <a href="#account">My Account Page </a></li>
     <li> <a href="#login">Login</a></li>
     <li> <a href="#logout">Logout</a></li>
+    <li> <a href="#feedback">Feedback </a></li>
     <li> <a href="#contact">Contact Us </a></li>
   </ul>
   <br>
@@ -76,6 +77,8 @@ function closeNav() {
 
 <!-- Form Name -->
 <legend id = "search">Searching for a Book</legend>
+<img src="/imageSupport/search1.png" style="width:250px;height:200px;">
+<br>
  <label>There are three options:</label>
  <ul>
     <li> <a href="#searchk">Search by Keyword</a></li>
@@ -139,6 +142,8 @@ function closeNav() {
   <br>
 
  <label id = "postc">The following will explain how to post a book by course:</label>
+ <img src="/imageSupport/post1.png" style="width:250px;height:200px;">
+<br>
    <ol>
     <li> Go to the: <a href="add_book_form.php">Post Book Page</a></li>
     <li> Scroll down to "Enter Information by Course"</li>
@@ -158,6 +163,8 @@ function closeNav() {
   <br>
 
  <label id = "postm">Thw following will explain how to post a book manually:</label>
+ <img src="/imageSupport/post2.png" style="width:250px;height:200px;">
+<br>
    <ol>
     <li> Go to the: <a href="add_book_form.php">Post Book Page</a></li>
     <li> Scroll down to "Enter Information by Course"</li>
@@ -179,6 +186,8 @@ function closeNav() {
 
 
 <legend id = "delete">Delete a Book Post</legend>
+<img src="/imageSupport/delete1.png" style="width:250px;height:200px;">
+<br>
 <label> A user is able to delete a book post for any reason: whether it is due to unavialbility, no longer interested, sold, etc.</label>
 <label>The following will explain how a user can delete a book post: </label>
   <ol>
@@ -194,6 +203,8 @@ function closeNav() {
   <br>
 
 <legend id = "message">Messaging Users</legend>
+<img src="/imageSupport/message1.png" style="width:250px;height:200px;">
+<br>
 <label>The Message Page, is used for users to contact one another: </label>
 <ol>
   <li> Go to the: <a href="email_chat.php">Message Page</a></li>
@@ -210,6 +221,8 @@ function closeNav() {
   <br>
 
 <legend id = "account">My Account Page</legend>
+<img src="/imageSupport/myAccount1.png" style="width:250px;height:200px;">
+<br>
 <label>The My Account Page, is used to let the user see their: </label>
 <ul>
   <li>Username</li>
@@ -236,10 +249,19 @@ function closeNav() {
 <br>
   <br>
 
-  <legend id = "login">Login</legend>
+  <legend id = "register">Register</legend>
+  <img src="/imageSupport/register1.png" style="width:250px;height:200px;">
+<br>
 <label>To use SPU Book Finder. You must have an account registered with us. To create an account you must: </label>
 <ul>
-  <li>Register with a valid SPU e-mail address account</li>
+  <li>Go to our home page: <a href="index.php"> SPU Book Finder</a></li>
+  <li>Scroll down to "Sign Up"</li>
+  <li>Enter a username, that you would like other users to see</li>
+  <li>Enter an e-mail address. Register with a valid SPU e-mail address account</li>
+  <li>Enter a password</li>
+  <li>Enter the password again to confirm it</li>
+  <li>Click on the "Register" button</li>
+  <li>Open up a new tab and go to your inbox. </li>
   <li>Confirm account by clicking on a confirmation link sent to your SPU e-mail</li>
   <li>Now you're all set to use SPU Book Finder!</li>
 </ul>
@@ -248,7 +270,25 @@ function closeNav() {
  <br>
   <br>
 
+  <legend id = "login">Login</legend>
+  <img src="/imageSupport/login1.png" style="width:250px;height:200px;">
+<br>
+<label>To use SPU Book Finder. You must have an account registered with us: </label>
+<ul>
+  <li>Go to our home page: <a href="index.php"> SPU Book Finder</a></li>
+  <li>Scroll down to "Log in"</li>
+  <li>Enter username and password</li>
+  <li>Click on the "Sign In" button</li>
+  <li>You've succesfully logged in, and can now use SPU Book Finder!</li>
+</ul>
+
+ <a href="#top"> Return to Top of Page </a>
+ <br>
+  <br>
+
   <legend id = "login">Log out</legend>
+<img src="/imageSupport/menu2.png" style="width:250px;height:200px;">
+<br>
 <label id ="logout"> To log out of our website, you must follow these steps:</label>
   <ol>
     <li> Go to the left hand corner of each web page.</a></li>
@@ -263,6 +303,14 @@ function closeNav() {
 <br>
   <br>
 
+<legend id = "feedback">Feedback</legend>
+ <label>To ensure SPU Book Finder is successful, we need your feedback!</label>
+  <p>You can follow this link to take our quick survey. <a href="https://www.surveymonkey.com/r/GPJDVMD">SurveyMonkey </a></p>
+
+  <a href="#top"> Return to Top of Page </a>
+<br>
+  <br>
+
 <legend id = "contact">Contact Us</legend>
  <label>To contact us for additional support, comments or concerns.</label>
   <p>You can email us at: spubookfinder@gmail.com </p>
@@ -273,6 +321,8 @@ function closeNav() {
   <a href="#top"> Return to Top of Page </a>
 <br>
   <br>
+
+
 
 </fieldset>
 </form>
