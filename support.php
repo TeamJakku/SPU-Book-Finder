@@ -77,7 +77,7 @@ function closeNav() {
 
 <!-- Form Name -->
 <legend id = "search">Searching for a Book</legend>
-<img src="/imageSupport/search1.png" style="width:250px;height:200px;">
+<img src="/imageSupport/search1.png" style="width:500px;height:350px;">
 <br>
  <label>There are three options:</label>
  <ul>
@@ -142,7 +142,8 @@ function closeNav() {
   <br>
 
  <label id = "postc">The following will explain how to post a book by course:</label>
- <img src="/imageSupport/post1.png" style="width:250px;height:200px;">
+ <br>
+ <img src="/imageSupport/post1.png" style="width:500px;height:350px;">
 <br>
    <ol>
     <li> Go to the: <a href="add_book_form.php">Post Book Page</a></li>
@@ -162,8 +163,9 @@ function closeNav() {
 <br>
   <br>
 
- <label id = "postm">Thw following will explain how to post a book manually:</label>
- <img src="/imageSupport/post2.png" style="width:250px;height:200px;">
+ <label id = "postm">The following will explain how to post a book manually:</label>
+ <br>
+ <img src="/imageSupport/post2.png" style="width:500px;height:350px;">
 <br>
    <ol>
     <li> Go to the: <a href="add_book_form.php">Post Book Page</a></li>
@@ -186,7 +188,7 @@ function closeNav() {
 
 
 <legend id = "delete">Delete a Book Post</legend>
-<img src="/imageSupport/delete1.png" style="width:250px;height:200px;">
+<img src="/imageSupport/delete1.png" style="width:500px;height:350px;">
 <br>
 <label> A user is able to delete a book post for any reason: whether it is due to unavialbility, no longer interested, sold, etc.</label>
 <label>The following will explain how a user can delete a book post: </label>
@@ -203,7 +205,7 @@ function closeNav() {
   <br>
 
 <legend id = "message">Messaging Users</legend>
-<img src="/imageSupport/message1.png" style="width:250px;height:200px;">
+<img src="/imageSupport/message1.png" style="width:500px;height:350px;">
 <br>
 <label>The Message Page, is used for users to contact one another: </label>
 <ol>
@@ -221,7 +223,7 @@ function closeNav() {
   <br>
 
 <legend id = "account">My Account Page</legend>
-<img src="/imageSupport/myAccount1.png" style="width:250px;height:200px;">
+<img src="/imageSupport/myAccount1.png" style="width:500px;height:350px;">
 <br>
 <label>The My Account Page, is used to let the user see their: </label>
 <ul>
@@ -250,7 +252,7 @@ function closeNav() {
   <br>
 
   <legend id = "register">Register</legend>
-  <img src="/imageSupport/register1.png" style="width:250px;height:200px;">
+  <img src="/imageSupport/register1.png" style="width:500px;height:350px;">
 <br>
 <label>To use SPU Book Finder. You must have an account registered with us. To create an account you must: </label>
 <ul>
@@ -271,7 +273,7 @@ function closeNav() {
   <br>
 
   <legend id = "login">Login</legend>
-  <img src="/imageSupport/login1.png" style="width:250px;height:200px;">
+  <img src="/imageSupport/login1.png" style="width:500px;height:350px;">
 <br>
 <label>To use SPU Book Finder. You must have an account registered with us: </label>
 <ul>
@@ -287,7 +289,7 @@ function closeNav() {
   <br>
 
   <legend id = "login">Log out</legend>
-<img src="/imageSupport/menu2.png" style="width:250px;height:200px;">
+<img src="/imageSupport/menu2.png" style="width:500px;height:350px;">
 <br>
 <label id ="logout"> To log out of our website, you must follow these steps:</label>
   <ol>
