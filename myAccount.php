@@ -9,7 +9,8 @@ session_start();
 
 <head>
 <title>My Account</title>
-<meta name="viewport" content= "width-device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 
 <link rel="stylesheet" href="style.css">
 
@@ -32,6 +33,7 @@ session_start();
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
@@ -106,7 +108,13 @@ $result = $mysqli->query($sql);
     
     <!-- Code for Edit Fields Button-->
 	<form action="change_password.php" oninput ="result.value=!! new_password.value&&(new_password.value==new_password_confirmed.value)?'Match':'Passwords do not match!'" action="register.php" method="post" enctype="multipart/form-data">
-
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
     <div class="form-group">
 	
 		<label for="inputPassword" class="control-label">Change Password</label>
