@@ -17,6 +17,9 @@
 <head>
 
   <title>Search Books</title>
+
+<!-- added -->
+<link rel="stylesheet" href="style.css"> 
   
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
@@ -34,7 +37,7 @@
 
 </head>
 
-<style>
+<!-- <style>
 
   body {
     font-family: "Lato", sans-serif;
@@ -83,12 +86,10 @@
   .sidenav a {font-size: 18px;}
 }
 
-</style>
+</style> -->
 
-
-
-
-<h1 class = "log" class ="log">SPU Book Finder</h1>
+<div class="otherH">
+<h1 class = "log" class ="log" style = "background-color: #7F1335;">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="index_search.php">Search</a>
@@ -96,6 +97,7 @@
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
@@ -105,10 +107,10 @@
 <br>
 <br>
 <br>
-<legend >Search</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
 </div>
 
-<body>
+<body style = "background-color:#EDD7B2">
 
 <script>
 function openNav() {
@@ -130,7 +132,7 @@ function closeNav() {
 <fieldset>
 
 <!-- Form Name -->
-<legend>Search keyword in book titles</legend>
+<legend>Search by Keyword</legend>
 
 <!-- change col-sm-N to reflect how you would like your column spacing (http://getbootstrap.com/css/#forms-control-sizes) -->
 
@@ -138,10 +140,10 @@ function closeNav() {
 <label class="col-md-4 control-label" for="selectbasic">Enter Keyword</label>
   <div class="col-md-4">
     <div class="search input-group" id="search" role="search" data-initialize="search">
-		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures" style = " background-color: #FFF2CC; color: black;" >
 
       <span class="input-group-btn">
-        <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <button name="Search Button" class="btn btn-primary" id="Search Button" style = "background-color: #7F1335;">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -172,7 +174,7 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
   <div class="search input-group" id="search" role="search" data-initialize="search">
-       <select name="selectbasic" class="form-control input-md" id="selectbasic">
+       <select name="selectbasic" class="form-control input-md" id="selectbasic" style = " background-color: #FFF2CC; color: black;">
     <?php
     include "db_connection.php";
 
@@ -193,7 +195,7 @@ function closeNav() {
 
     </select>
         <span class="input-group-btn">
-           <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+           <button name="Search Button" class="btn btn-primary" id="Search Button" style = "background-color: #7F1335;">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -219,7 +221,7 @@ function closeNav() {
   <div class="search input-group" id="search" role="search" data-initialize="search">
     <span name="selectbasic" id="selectbasic"></span>
         <span class="input-group-btn">
-           <button  name="singlebutton" class="btn btn-primary" id="singlebutton">Display</button>
+           <button  name="singlebutton" class="btn btn-primary" id="singlebutton" style = "background-color: #7F1335;">Display</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
