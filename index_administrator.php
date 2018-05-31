@@ -1,20 +1,45 @@
-<html>
-<head>
-  <title>Welcome to SPU Book Finder</title>
-
 <?php
-//session_start();
+  
+  
+  //session_start();
+  //if(!isset($_SESSION['id'])){
+    //header("Location: login.php");
+  //}
 
-//include "db_connection.php";
+  //include "db.php";
 
-//include "login.php"
+//<link rel="stylesheet" href="style.css">
+
 
 ?>
 
+<html>
+<head>
+
+  <title>Search Books</title>
+
+<!-- added -->
+<link rel="stylesheet" href="style.css"> 
+  
 <meta name="viewport" content= "width-device-width, initial-scale=1">
 <style>
 
-	body {
+</style>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<!-- <style>
+
+  body {
     font-family: "Lato", sans-serif;
 }
 
@@ -61,38 +86,34 @@
   .sidenav a {font-size: 18px;}
 }
 
-
-</style>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
+</style> -->
 
 
 
-
-<h1>Welcome Administrator</h1>
+<div class="otherH">
+<h1 class = "log" class ="log" style = "background-color: #7F1335;">SPU Book Finder, Welcome Administrator</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index.php">Search</a>
+  <a href="index_search.php">Search</a>
+  <a href="add_course.php">Add Course</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
-  <a href="add_course.php">Add Course</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
+</div>
+
+<body style = "background-color:#EDD7B2">
 
 <script>
 function openNav() {
@@ -106,18 +127,7 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 } 
 </script>
-<?php
 
-	session_start();
-	if(!isset($_SESSION['id'])){
-		header("Location: login.php");
-	}
-
-include "db_connection.php";
-
-
-
-?>
 <div id="main">
 
 <!-- search books with key workd -->
@@ -127,18 +137,16 @@ include "db_connection.php";
 <!-- Form Name -->
 <legend>Search by Keyword</legend>
 
-
-
-
 <!-- change col-sm-N to reflect how you would like your column spacing (http://getbootstrap.com/css/#forms-control-sizes) -->
 
 <div class="form-group">
 <label class="col-md-4 control-label" for="selectbasic">Enter Keyword</label>
   <div class="col-md-4">
     <div class="search input-group" id="search" role="search" data-initialize="search">
-		<input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures">
+    <input name="keyword" class="form-control input-md" id="keyword" required="" type="search" placeholder="e.g. data structures" style = " background-color: #FFF2CC; color: black;" >
+
       <span class="input-group-btn">
-        <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <button name="Search Button" class="btn btn-primary" id="Search Button" style = "background-color: #7F1335;">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -164,38 +172,38 @@ include "db_connection.php";
 <legend>Search by Course Name</legend>
 
 <!-- Select Basic -->
+<!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
-	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select name="selectbasic" class="form-control input-md" id="selectbasic">
-	
-		<option value="">Select Course</option>
-		<?php
-		include "db_connection.php";
+  <div class="search input-group" id="search" role="search" data-initialize="search">
+       <select name="selectbasic" class="form-control input-md" id="selectbasic" style = " background-color: #FFF2CC; color: black;">
+    <?php
+    include "db_connection.php";
 
-	if($mysqli->connect_errno){
-		echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
-	}
+  if($mysqli->connect_errno){
+    echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
+  }
 
 
 
 
-	$sql = "SELECT * FROM `course_table` ";
-	$result = $mysqli->query($sql);
-	
-	while($row = mysqli_fetch_array($result)):;?>
-		<option value="<?php echo $row['CourseNum'];?>"><?php echo $row['CourseTitle'];?><?php echo "  (".$row['CourseNum'].")";?></option>
-		<?php endwhile;?>
+  
+  $sql = "SELECT * FROM `course_table` ";
+  $result = $mysqli->query($sql);
+  
+  while($row = mysqli_fetch_array($result)):;?>
+    <option value="<?php echo $row['CourseNum'];?>"><?php echo $row['CourseTitle'];?><?php echo "  (".$row['CourseNum'].")";?></option>
+    <?php endwhile;?>
 
     </select>
-	      <span class="input-group-btn">
-           <button name="Search Button" class="btn btn-primary" id="Search Button">Search</button>
+        <span class="input-group-btn">
+           <button name="Search Button" class="btn btn-primary" id="Search Button" style = "background-color: #7F1335;">Search</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
       </span>
-	</div>
+  </div>
   </div>
 </div>
 
@@ -216,7 +224,7 @@ include "db_connection.php";
   <div class="search input-group" id="search" role="search" data-initialize="search">
     <span name="selectbasic" id="selectbasic"></span>
         <span class="input-group-btn">
-           <button name="singlebutton" class="btn btn-primary" id="singlebutton">Search</button>
+           <button  name="singlebutton" class="btn btn-primary" id="singlebutton" style = "background-color: #7F1335;">Display</button>
           <span class="glyphicon glyphicon-search"></span>
           <span class="sr-only">Search</span>
         </button>
@@ -234,7 +242,7 @@ include "db_connection.php";
 
 
 
-	
+  
 
 
 <?php
@@ -242,7 +250,7 @@ include "db_connection.php";
 
 //include "search_keyword.php";
 
-$mysqli->close();
+//$mysqli->close();
 
 
 ?>
