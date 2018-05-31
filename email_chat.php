@@ -1,3 +1,8 @@
+<?php 
+session_start();
+    $username = $_SESSION['username'];
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -57,6 +62,20 @@ $(document).ready(function(){
 });
 </script>
 
+ <!--Code to display username of user so they dont have to input it themselves -->
+<?php
+include_once ("db_connection.php");
+
+
+$query = "SELECT * FROM users WHERE username='$username'";
+$result = mysqli_query($mysqli,$query);
+while($row = mysqli_fetch_array($result))
+{
+    $email = $row['email'];
+}
+
+?>
+
     </head>
 
 
@@ -72,6 +91,7 @@ $(document).ready(function(){
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
@@ -79,6 +99,9 @@ $(document).ready(function(){
 <br>
 <br>
 <br>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Message</legend>
+</div>
+
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -93,7 +116,7 @@ function closeNav() {
 </script>
 
 <!-- Form Name -->
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Message Page</legend>
+
  </head>
 <body>
 <div class="sechalf">
@@ -108,6 +131,7 @@ function closeNav() {
                 <label class="col-md-4 control-label">From </label>
             <div class="col-md-4">
                 <input type="text" class="form-control input-md" id="keyword" name="from" placeholder="Sender's Username"/>
+                 <!--<p style = " background-color: #FFF2CC; color: black;" type="text" class="form-control input-md" id="keyword" name="from"> <? $username ?> </p>-->
             </div>
             </div>
         </fieldset>
