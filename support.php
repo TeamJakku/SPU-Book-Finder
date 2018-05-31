@@ -65,6 +65,8 @@ function closeNav() {
     <li> <a href="#delete">Deleting a Book Post </a></li>
     <li> <a href="#message">Messaging Users </a></li>
     <li> <a href="#account">My Account Page </a></li>
+    <li> <a href="#login">Login</a></li>
+    <li> <a href="#logout">Logout</a></li>
     <li> <a href="#contact">Contact Us </a></li>
   </ul>
   <br>
@@ -228,6 +230,33 @@ function closeNav() {
     <li> Enter the new password again in the next textbook </li>
     <li> Click on the "Save" button</li>
     <li> Now you're all set to use your new password! </li>
+ </ol>
+
+ <a href="#top"> Return to Top of Page </a>
+<br>
+  <br>
+
+  <legend id = "login">Login</legend>
+<label>To use SPU Book Finder. You must have an account registered with us. To create an account you must: </label>
+<ul>
+  <li>Register with a valid SPU e-mail address account</li>
+  <li>Confirm account by clicking on a confirmation link sent to your SPU e-mail</li>
+  <li>Now you're all set to use SPU Book Finder!</li>
+</ul>
+
+ <a href="#top"> Return to Top of Page </a>
+ <br>
+  <br>
+
+  <legend id = "login">Log out</legend>
+<label id ="logout"> To log out of our website, you must follow these steps:</label>
+  <ol>
+    <li> Go to the left hand corner of each web page.</a></li>
+    <li> Click on the three horizontal line image.</li>
+    <li> Menu should appear. </li>
+    <li> Scroll down to the bottom. </li>
+    <li> Click log out</li>
+    <li> Now you've successfully logged out! </li>
  </ol>
 
  <a href="#top"> Return to Top of Page </a>
