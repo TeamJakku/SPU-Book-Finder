@@ -3,58 +3,10 @@
 <html lang="en">  
 
 <head>
+<title>Post Book</title>
 <meta name="viewport" content= "width-device-width, initial-scale=1">
-<style>
+<link rel="stylesheet" href="style.css">
 
-	body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #3366cc;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #ffcc99;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-
-</style>  
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -82,19 +34,69 @@ function getBooks(val)
 }
 
 </script>
-<body>
-<h1>SPU Book Finder</h1>
+<script>
+function validateForm1(){
+    var price = document.forms["form1"]["price1"].value;
+    var e = document.getElementById("book-list");
+    var val = e.options[e.selectedIndex].value;
+    
+    if(val == "No books found. Enter information manually"){
+        alert("There are no books for this course in our records. Please enter information manually");
+        return false;
+        
+    }
+    
+    if(val == "Now Select book"){
+        alert("Please select a book from this course");
+        return false;
+    }
+    
+    if(isNaN(price)){
+        alert("Invalid value for price. Do not include dollar sign");
+        return false;
+    }
+    
+}
+</script>
+
+<script>
+function validateForm2(){
+    var price = document.forms["form2"]["price"].value;
+    var isbn = document.forms["form2"]["isbn"].value;
+    alert(isbn);
+    if(isNormalInteger(isb)){
+        alert("not a number");
+    }
+    if(isNaN(price)){
+        alert("Invalid value for price. Do not include dollar sign");
+        
+    }
+    return false;
+    
+function isNormalInteger(str){
+    var n = Math.floor(Number(str));
+    return n !== Infinity && String(n) === str && n>=0;
+}
+    
+}
+</script>
+
+<div class="otherH">
+<body style = "background-color:#EDD7B2;">
+<h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index.php">Search</a>
+  <a href="index_search.php">Search</a>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="logout.php">Log Out</a>
+  
 </div>
-
-
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Add Book</legend>
+</div>
 
 <script>
 function openNav() {
@@ -118,7 +120,8 @@ function closeNav() {
 </div> -->
 <div id="main">
 
-<form class="form-horizontal" action="add_book_by_course.php" method="post">
+<!--Enter book by course -->
+<form name="form1" class="form-horizontal" action="add_book_by_course.php" method="post" onsubmit="return validateForm1()">
 <fieldset>
 <h3>Enter Book information with Course title</h3>
 <!-- Select Basic -->
@@ -126,7 +129,7 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select name="course" class="form-control input-md" id="course" onChange="getBooks(this.value);" required>
+    <select style = "background-color: #FFF2CC;" name="course" class="form-control input-md" id="course" onChange="getBooks(this.value);" required>
 		<option value="">None</option>
 		<?php
 		include "db_connection.php";
@@ -146,14 +149,14 @@ function closeNav() {
 		<?php endwhile;?>
 
     </select>
-	<select name="book-list" class="form-control input-md" id="book-list" required>
+	<select style = "background-color: #FFF2CC;" name="book-list" class="form-control input-md" id="book-list" required>
 			<option value="">None</option>
 	</select>
 	</div>
   </div>
 </div>
 <!-- Form Name -->
-<legend>Add Book</legend>
+
 
 
 
@@ -187,13 +190,13 @@ function closeNav() {
 				
 				<div class="form-group col-sm-6">
 					<label for="price" class="control-label">Listing Price</label>
-					<input name="price" class="form-control input-md" id="price" type="text" placeholder="70.00" required>
+					<input name="price1" class="form-control input-md" id="price" type="text" placeholder="70.00" required>
 
 				</div>
 
 				<div class="form-group col-sm-6">
 					<label class="control-label" for="condition">Condition</label>
-					<select name="condition" class="form-control" id="condition" required>
+					<select style = "background-color: #FFF2CC;" name="condition" class="form-control" id="condition" required>
 					    <option value="">None</option>
 						<option value="New">New</option>
 						<option value="New">Like New</option>
@@ -217,7 +220,7 @@ function closeNav() {
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button name="add_book_button" class="btn btn-primary" id="singlebutton">SUBMIT</button>
+    <button style = "background-color: #7F1335;" name="add_book_button" class="btn btn-primary" id="singlebutton">SUBMIT</button>
   </div>
 </div>
 
@@ -247,7 +250,7 @@ function closeNav() {
 
 <!-- ENTER BOOK MANUALLY -->
 
-<form class="form-horizontal" action="add_book.php" method="post">
+<form name="form2" class="form-horizontal" action="add_book.php" method="post" onsubmit="return validateForm2()">
 <fieldset>
 <h3>Or Enter Book information manually </h3>
 <!-- Select Basic -->
@@ -255,8 +258,9 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select name="course" class="form-control input-md" id="selectbasic" required>
+    <select style = "background-color: #FFF2CC;" name="course" class="form-control input-md" id="selectbasic" required>
 	<option value="">None</option>
+	<option value="unknown">unknown</option>
 		<?php
 		include "db_connection.php";
 
@@ -279,13 +283,13 @@ function closeNav() {
   </div>
 </div>
 <!-- Form Name -->
-<legend>Add Book</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Add Book</legend>
 
 <!-- ISBN-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="isbn">ISBN:</label>  
   <div class="col-md-4">
-  <input name="isbn" class="form-control input-md" id="isbn" type="text" placeholder="9999999999" required>
+  <input name="isbn" class="form-control input-md" id="isbn" type="text" placeholder="9999999999999" required>
   <span class="help-block">Enter ISBN</span>  
   </div>
 </div>
@@ -345,7 +349,7 @@ function closeNav() {
 
 				<div class="form-group col-sm-6">
 					<label class="control-label" for="condition">Condition</label>
-					<select name="condition" class="form-control" id="condition" required>
+					<select style = "background-color: #FFF2CC;" name="condition" class="form-control" id="condition" required>
 						<option value="">None</option>
             <option value="New">Like New</option>
 						<option value="Used">Good Used</option>
@@ -368,7 +372,7 @@ function closeNav() {
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button name="add_book_button" class="btn btn-primary" id="singlebutton">SUBMIT</button>
+    <button style = "background-color: #7F1335;" name="add_book_button" class="btn btn-primary" id="singlebutton">SUBMIT</button>
   </div>
 </div>
 
