@@ -66,11 +66,14 @@ function validateForm1(){
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
-
+<br>
+<br>
+<br>
 <legend style = "background-color: #7F1335; color: #FFF2CC;">Delete Posts</legend>
 </div>
 
