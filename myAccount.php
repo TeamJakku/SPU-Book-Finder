@@ -1,14 +1,16 @@
 <?php
 
 session_start();
+    
 ?>
 <html>  
 
 <html lang="en">  
 
 <head>
-    <title>My Account</title>
+<title>My Account</title>
 <meta name="viewport" content= "width-device-width, initial-scale=1">
+
 <link rel="stylesheet" href="style.css">
 
 <!-- Latest compiled and minified CSS -->
@@ -19,6 +21,7 @@ session_start();
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <div class="otherH">
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
@@ -60,34 +63,37 @@ if($mysqli->connect_errno){
 	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
 }
 
-$user_id = $_SESSION['id'];
+    $username = $_SESSION['username'];
+    
 
-$sql = "SELECT *  FROM users WHERE user_id = $user_id";
+    $sql = "SELECT *  FROM users WHERE username = '$username'";
 $result = $mysqli->query($sql);
+    
+
 
 ?>
+
 <body style = "background-color:#EDD7B2;">
 </div>
 <div class="sechalf">
 <div id="main">
 
-
-<legend>My Account Information</legend>
 <!-- Code for Sign Up Fields-->
     <div class="form-group">
         <label class="col-md-4 control-label" for="register"></label>
         <div class="col-md-5">
             <label for="inputPassword" class="control-label">Username is:</label>
-			
-			<?php while($row = mysqli_fetch_array($result)):;?>
-			
-            <p placeholder="Username" style = " background-color: #FFF2CC; color: black;" name="username" type="text" autofocus class="form-control"><?php echo $row['username'];?></p>
+
+
+			<?php
+                while($row = mysqli_fetch_array($result)):;?>
+            <p style = "background-color: #FFF2CC;" placeholder="Username"  name="username" type="text" autofocus class="form-control"><?php echo $row['username'];?></p>
             <label for="inputPassword" class="control-label">E-mail address is:</label>
-            <p placeholder="E-mail Adress" style = " background-color: #FFF2CC; color: black;" name="email" type="text" class="form-control"><?php echo $row['email'];?></p>
+            <p style = "background-color: #FFF2CC;" placeholder="E-mail Adress" name="email" type="text" class="form-control"><?php echo $row['email'];?></p>
             <?php 
 				$user_password = $row['password'];
 			?>
-			<?php endwhile;?>
+            <?php endwhile;?>
             <!-- Code for Password-->
             
 
@@ -100,18 +106,10 @@ $result = $mysqli->query($sql);
     
     <!-- Code for Edit Fields Button-->
 	<form action="change_password.php" oninput ="result.value=!! new_password.value&&(new_password.value==new_password_confirmed.value)?'Match':'Passwords do not match!'" action="register.php" method="post" enctype="multipart/form-data">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="sechalf">
-<div id="main">
-<legend>Change Password</legend>
+
     <div class="form-group">
-        
-		<label for="inputPassword" class="control-label"></label>
+	
+		<label for="inputPassword" class="control-label">Change Password</label>
                 
                 <div class="help-block"></div>
                     
@@ -127,22 +125,18 @@ $result = $mysqli->query($sql);
 
                     <div class="form-group col-sm-6">
                         <input type="password" name="new_password_confirmed" data-minlength="6" class="form-control" id="new_password_confirmed" placeholder="Confirm New Password" required>
-					</div>	
-                </div>
-            </div>
+						
                          <output name="result"></output>
 						
                     </div>
-                </div>
-
-	 <div class="form-group">				
-    <label class="col-md-4 control-label" for="Search Button"></label>
+					
+        <label class="col-md-4 control-label" for="Search Button"></label>
         <div class="col-md-4">
         <button style = "background-color: #7F1335;" name="register" class="btn btn-primary" id="Register button">Save</button>
         </div>
     </div>
     
-</div>
+
     </fieldset>
     </form>
   
