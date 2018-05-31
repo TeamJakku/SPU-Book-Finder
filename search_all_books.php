@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    $id = $_SESSION["id"];
+    
+    
+?>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +18,15 @@
     $( "#accordion" ).accordion();
   } );
   </script>
+<script type="text/javascript">
+function clic(element)
+{
+    var toUser = element.id;
+    var book = element.name;
+    window.location.href = "http://spubookfinder.dx.am/auto_email_chat.php?username="+toUser+"&book="+book;
+    
+}
+</script>
 </head>
 
 <?php
@@ -20,9 +36,13 @@ echo"<h2>All books in database</h2>";
 if($mysqli->connect_errno){
 	echo "Failed to connect to MySQL; (". $mysqli->connect_errno.")".$mysqli->connect_errno;
 }
-echo $mysqli->host_info. "\n";
 
-$sql = "SELECT *  FROM book_table";
+    
+
+
+
+    
+$sql = "SELECT * FROM book_table";
 $result = $mysqli->query($sql);
 ?>
 
@@ -31,12 +51,25 @@ $result = $mysqli->query($sql);
 <?php
 
 if($result->num_rows>0){
-	//output data of each row
-	while($row = $result->fetch_assoc()){
-		
-		echo "<h3>$row[BookTitle]</h3>";
-		echo "<div><p>$row[Author]</p><p>$row[ISBNum]</p><p>$row[CourseNum]</p><p>$row[Description]</p><p>$row[Condition]</p></div>";
-	}
+    while($row = $result->fetch_assoc()):;?>
+
+
+
+<h3><?php echo $row['BookTitle']; ?></h3>
+<div>
+<p><b>ISBN:</b> <?php echo $row['ISBNum'];?></p>
+<p><b>COURSE NUMBER:</b> <?php echo $row['CourseNum'];?></p>
+<p><b>DESCRIPTION:</b> <?php echo $row['Description'];?></p>
+<p><b>CONDITION:</b> <?php echo $row['condition'];?></p>
+<p><b>CONTACT USER:</b> <?php echo $row['username'];?></p>
+<p><b>PRICE: </b>  $<?php echo $row['Price'];?></p>
+<?php echo '<input type="button" onclick="clic(this)" value ="message" id="'.$row['username'].'" name="'.$row['BookTitle'].'" />' ?>
+
+</div>
+
+<?php endwhile;
+
+	
 }else{
 	echo "0 results";
 }

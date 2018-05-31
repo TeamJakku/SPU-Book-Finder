@@ -11,6 +11,15 @@
     $( "#accordion" ).accordion();
   } );
   </script>
+<script type="text/javascript">
+function clic(element)
+{
+    var toUser = element.id;
+    var book = element.name;
+    window.location.href = "http://spubookfinder.dx.am/auto_email_chat.php?username="+toUser+"&book="+book;
+
+}
+</script>
 </head>
 
 
@@ -23,19 +32,33 @@ echo"<h2>Show all books with the word $keywordfromform in title</h2>";
 $sql = "SELECT *  FROM book_table WHERE BookTitle LIKE '%".$keywordfromform ."%'";
 $result = $mysqli->query($sql);
 
-?>
-<div id="accordion">
-<?php
-if($result->num_rows>0){
-	//output data of each row
-	while($row = $result->fetch_assoc()){
-		
-		echo "<h3>$row[BookTitle]</h3>";
-		echo "<div><p>$row[Author]</p><p>$row[ISBNum]</p><p>$row[Description]</p><p>$row[Condition]</p></div>";
-	}
-}else{
-	echo "0 results";
-}
+    ?>
 
-?>
+<div id="accordion">
+
+<?php
+    
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()):;?>
+
+
+
+<h3><?php echo $row['BookTitle']; ?></h3>
+<div>
+<p><b>ISBN:</b> <?php echo $row['ISBNum'];?></p>
+<p><b>COURSE NUMBER:</b> <?php echo $row['CourseNum'];?></p>
+<p><b>DESCRIPTION:</b> <?php echo $row['Description'];?></p>
+<p><b>CONDITION:</b> <?php echo $row['condition'];?></p>
+<p><b>CONTACT USER:</b> <?php echo $row['username'];?></p>
+<p><b>PRICE: </b>  $<?php echo $row['Price'];?></p>
+<?php echo '<input type="button" onclick="clic(this)" value ="message" id="'.$row['username'].'" name="'.$row['BookTitle'].'" />' ?>
+</div>
+
+<?php endwhile;
+    
+    
+    }else{
+        echo "0 results";
+    }
+    ?>
 </div>
