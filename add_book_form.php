@@ -91,10 +91,14 @@ function isNormalInteger(str){
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
   
 </div>
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
 <legend style = "background-color: #7F1335; color: #FFF2CC;">Add Book</legend>
 </div>
 
@@ -123,7 +127,7 @@ function closeNav() {
 <!--Enter book by course -->
 <form name="form1" class="form-horizontal" action="add_book_by_course.php" method="post" onsubmit="return validateForm1()">
 <fieldset>
-<h3>Enter Book information with Course title</h3>
+<h3>Enter Book Information With Course Title</h3>
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
@@ -252,7 +256,7 @@ function closeNav() {
 
 <form name="form2" class="form-horizontal" action="add_book.php" method="post" onsubmit="return validateForm2()">
 <fieldset>
-<h3>Or Enter Book information manually </h3>
+<h3>Enter Book Information Manually </h3>
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Select Course</label>
@@ -283,7 +287,7 @@ function closeNav() {
   </div>
 </div>
 <!-- Form Name -->
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Add Book</legend>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Add Book </legend>
 
 <!-- ISBN-->
 <div class="form-group">
