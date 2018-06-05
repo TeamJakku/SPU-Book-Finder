@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-
+$session_username=$_SESSION["username"];
 
 ?>
 
@@ -50,8 +50,27 @@ function validateForm1(){
         return false;
         
     }
-    var bookTitle = document.forms["myForm"]["book-list"].text;
+	
+	var sel = document.getElementById("book-list");
+	var bookTitle = sel.options[sel.selectedIndex].text;
+	
+    //var bookTitle = document.forms["myForm"]["book-list"].text;
     return confirm("Are you sure you want to delete " + bookTitle);
+    
+}
+</script>
+
+<script>
+function validateForm1(){
+    var bookValue = document.forms["myForm"]["book-list"].value;
+    if(bookValue == "not"){
+        alert("You have no books posted");
+        return false;
+        
+    }
+    var sel = document.getElementById("book-list");
+    var bookTitle = sel.options[sel.selectedIndex].text;
+    return confirm("Are you sure you want to delete book: \n " + bookTitle);
     
 }
 </script>
@@ -61,12 +80,17 @@ function validateForm1(){
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <?php if($session_username == "administrator"){echo "<a href='index_administrator.php'>Search </a>";}
+    else{
+      echo "<a href='index_search.php'>Search</a>";
+    } ?>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="support.php">Support</a>
+  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses </a>";} ?>
   <a href="logout.php">Log Out</a>
 </div>
 
@@ -102,7 +126,7 @@ function closeNav() {
   <label class="col-md-4 control-label" for="selectbasic">My Books</label>
   <div class="col-md-4">
 	<div class="search input-group" id="search" role="search" data-initialize="search">
-    <select style = "background-color: #FFF2CC;" name="book-list" class="form-control input-md" id="selectbasic">
+    <select style = "background-color: #FFF2CC;" name="book-list" class="form-control input-md" id="book-list">
 <?php if($num ==0) { ?>
             <option value ="not"> You have no books posted </option>
     

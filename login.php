@@ -45,7 +45,7 @@ session_start();
 			$_SESSION['id'] = $id; 
 			header("Location: index_administrator.php");
 		}
-		if(strcmp($password,$db_password) ==0 && $active == 1){
+		if(strcmp($password,$db_password) ==0 && $active == 1 && $username != "administrator"){
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $id;
 			header("Location: index_search.php");

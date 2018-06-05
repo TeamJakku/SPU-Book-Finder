@@ -1,17 +1,12 @@
-<head>
- 
-</head>
-
 <?php
 include "db_connection.php";
-$bookID = $_GET["selectbasic"];
+$bookID = $_GET["book-list"];
 
-echo"<h2>Selected Book ID  $bookID </h2>";
-$sql = "DELETE FROM `books`.`book_table` WHERE `book_table`.`BookID` ='$bookID'";
+$sql = "DELETE FROM `book_table` WHERE `book_table`.`BookID` ='$bookID'";
 $result = $mysqli->query($sql);
 
 if ($result === TRUE) {
-    echo "Post deleted successfully";
+    header("refresh:2; url=delete_post.php");
 } else {
     echo "Error deleting record: " . $conn->error;
 }
@@ -19,4 +14,8 @@ if ($result === TRUE) {
 
 
 ?>
+
+<head>
+
+</head>
 

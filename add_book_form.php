@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+$session_username = $_SESSION["username"];
+?>
+
 <html>  
 
 <html lang="en">  
@@ -36,7 +42,7 @@ function getBooks(val)
 </script>
 <script>
 function validateForm1(){
-    var price = document.forms["form1"]["price1"].value;
+    var price = document.forms["form1"]["price"].value;
     var e = document.getElementById("book-list");
     var val = e.options[e.selectedIndex].value;
     
@@ -59,24 +65,33 @@ function validateForm1(){
 }
 </script>
 
+
 <script>
 function validateForm2(){
     var price = document.forms["form2"]["price"].value;
     var isbn = document.forms["form2"]["isbn"].value;
-    alert(isbn);
-    if(isNormalInteger(isb)){
-        alert("not a number");
+    var title = document.forms["form2"]["Title"].value;
+    if(isbn.length != 13){
+        alert("ISBN must be 13 digits long");
+        return false;
     }
+    
+    if(title.length < 5){
+        alert("Book title has to be at least 5 characters");
+        return false;
+    }
+    if(title.length > 100){
+        alert("Maximum book title length 100 character");
+        return false;
+    }
+    
     if(isNaN(price)){
         alert("Invalid value for price. Do not include dollar sign");
+        return false;
         
     }
-    return false;
     
-function isNormalInteger(str){
-    var n = Math.floor(Number(str));
-    return n !== Infinity && String(n) === str && n>=0;
-}
+    
     
 }
 </script>
@@ -86,14 +101,18 @@ function isNormalInteger(str){
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <?php if($session_username == "administrator"){echo "<a href='index_administrator.php'>Search </a>";}
+    else{
+      echo "<a href='index_search.php'>Search</a>";
+    } ?>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="support.php">Support</a>
+  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses </a>";} ?>
   <a href="logout.php">Log Out</a>
-  
 </div>
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
 <br>
@@ -194,7 +213,7 @@ function closeNav() {
 				
 				<div class="form-group col-sm-6">
 					<label for="price" class="control-label">Listing Price</label>
-					<input name="price1" class="form-control input-md" id="price" type="text" placeholder="70.00" required>
+					<input name="price" class="form-control input-md" id="price" type="text" placeholder="70.00" required>
 
 				</div>
 
@@ -203,9 +222,9 @@ function closeNav() {
 					<select style = "background-color: #FFF2CC;" name="condition" class="form-control" id="condition" required>
 					    <option value="">None</option>
 						<option value="New">New</option>
-						<option value="New">Like New</option>
-						<option value="Used">Good Used</option>
-						<option value="New">Fair</option>
+						<option value="Like New">Like New</option>
+						<option value="Good Used">Good Used</option>
+						<option value="Fair">Fair</option>
 					</select>
 				</div>
 
@@ -355,9 +374,9 @@ function closeNav() {
 					<label class="control-label" for="condition">Condition</label>
 					<select style = "background-color: #FFF2CC;" name="condition" class="form-control" id="condition" required>
 						<option value="">None</option>
-            <option value="New">Like New</option>
+                        <option value="Like New">Like New</option>
 						<option value="Used">Good Used</option>
-            <option value="New">Fair</option>
+                        <option value="Fair">Fair</option>
 					</select>
 				</div>
 

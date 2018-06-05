@@ -1,60 +1,33 @@
+<?php
+  
+  
+  //session_start();
+  //if(!isset($_SESSION['id'])){
+    //header("Location: login.php");
+  //}
+
+  //include "db.php";
+
+//<link rel="stylesheet" href="style.css">
+
+
+?>
+
 <html>  
 
 <html lang="en">  
 
 <head>
+
+  <title>Add Course</title>
+
+  <!-- added -->
+<link rel="stylesheet" href="style.css"> 
+
+
+
 <meta name="viewport" content= "width-device-width, initial-scale=1">
-<style>
 
-	body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #3366cc;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #ffcc99;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-
-</style>  
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -66,19 +39,34 @@
 
 </head>  
 
-<body>
-<h1>Add course form</h1>
+<div class="otherH">
+<h1 class = "log" class ="log" style = "background-color: #7F1335;">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index.php">Search</a>
+  <a href="index_administrator.php">Search</a>
+  <a href="add_course.php">Add Course</a>
+    <!--
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
+  <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
+-->
+  <a href="support.php">Support</a>
   <a href="logout.php">Log Out</a>
 </div>
 
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
+<br>
+<br>
+<br>
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
+</div>
+
+<body style = "background-color:#EDD7B2">
+
+
 
 <script>
 function openNav() {
@@ -105,20 +93,20 @@ function closeNav() {
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add Course infor</legend>
+<legend>Add Course Information</legend>
 
 <!-- CourseTitle-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="course_title">Course Title:</label>  
   <div class="col-md-4">
   <input name="course_title" class="form-control input-md" id="course_title" type="text" placeholder="Algorithm Design">
-  <span class="help-block">Enter Course Title</span>  
+  <span class="help-block">Enter Course Title:</span>  
   </div>
 </div>
 
 <!-- Section-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="section">Section</label>  
+  <label class="col-md-4 control-label" for="section">Section:</label>  
   <div class="col-md-4">
   <input name="section" class="form-control input-md" id="section" type="text" placeholder="7">
   <span class="help-block">Enter section</span>  
@@ -127,7 +115,7 @@ function closeNav() {
 
 <!-- ISBN-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="course_num">Course Num</label>  
+  <label class="col-md-4 control-label" for="course_num">Course Number:</label>  
   <div class="col-md-4">
   <input name="course_num" class="form-control input-md" id="course_num" type="text" placeholder="CSC 3340">
   <span class="help-block">Enter Course Num</span>  
@@ -135,7 +123,7 @@ function closeNav() {
 </div>
 
 
-<h3>Book Required for this course </h3>
+<legend>Book Required for Course </legend>
 <!-- ISBN-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="isbn">ISBN:</label>  
@@ -147,7 +135,7 @@ function closeNav() {
 
 <!-- Tittle-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Title">Book Title</label>  
+  <label class="col-md-4 control-label" for="Title">Book Title:</label>  
   <div class="col-md-4">
   <input name="Title" class="form-control input-md" id="Title" type="text" placeholder="e.g Algorithm Design ">
   <span class="help-block">Enter Title</span>  
@@ -156,7 +144,7 @@ function closeNav() {
 
 <!-- Author-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="author">Author</label>  
+  <label class="col-md-4 control-label" for="author">Author:</label>  
   <div class="col-md-4">
   <input name="author" class="form-control input-md" id="author" type="text" placeholder="Jon Kleinberg, Eva Tardos">
   <span class="help-block">Enter Author</span>  
@@ -168,7 +156,7 @@ function closeNav() {
 
 <!-- Edition-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="edition">Edition</label>  
+  <label class="col-md-4 control-label" for="edition">Edition:</label>  
   <div class="col-md-4">
   <input name="edition" class="form-control input-md" id="edition" type="text" placeholder="7th (optional)">
     
@@ -184,7 +172,7 @@ function closeNav() {
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button name="add_book_button" class="btn btn-primary" id="singlebutton">SUBMIT</button>
+    <button name="add_book_button" class="btn btn-primary" id="singlebutton" style = "background-color: #7F1335;">Submit</button>
   </div>
 </div>
 

@@ -9,7 +9,7 @@ $edition = $_POST["edition"];
 $condition = $_POST["condition"];
 $description = $_POST["description"];
 session_start();
-$user_id = $_SESSION['id'];
+$username = $_SESSION['username'];
 //echo "$user_id";
 // $new_joke_question = addslashes($new_joke_question);
 // $new_answer = addslashes($new_answer);
@@ -24,7 +24,7 @@ $condition = addslashes($condition);
 $description = addslashes($description);
 
 
- $sql = "INSERT INTO `books`.`book_table` (
+ $sql = "INSERT INTO `book_table` (
  `BookID` ,
 `ISBNum` ,
 `BookTitle` ,
@@ -32,13 +32,28 @@ $description = addslashes($description);
 `Edition` ,
 `Price` ,
 `Description` ,
-`Condition` ,
+`condition` ,
 `CourseNum` ,
-`user_id` 
+`username`
 ) 
- VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$price', '$description', '$condition', '$course', '$user_id')";
+ VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$price', '$description', '$condition', '$course', '$username')";
  $result = $mysqli->query($sql) or die("an error has occured");
 
+  $sql_fetch_book = "INSERT INTO `book_required` (
+`BookID` ,
+`ISBNum` ,
+`BookTitle` ,
+`Author` ,
+`Edition` ,
+`courseNum`  
+) 
+ VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$course')";
+ 
+
+ 
+ 
+ $result_book = $mysqli->query($sql_fetch_book) or die("an error has occured in trying to fetch book".mysqli_error($mysqli));
+ 
  include "search_all_books.php";
  
  
@@ -46,4 +61,4 @@ $description = addslashes($description);
 
 ?>
 
-<a href="index.php">Return to main page</a>
+<!--<a href="index_search.php">Return to main page</a>-->
