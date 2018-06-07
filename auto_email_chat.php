@@ -1,7 +1,6 @@
 <?php 
 session_start();
-    $session_username = $_SESSION['username'];
-
+ $session_username = $_SESSION["username"];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,10 +8,6 @@ session_start();
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Message Page</title>
 <link rel="stylesheet" href="style.css">
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -100,18 +95,14 @@ while($row = mysqli_fetch_array($result))
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="support.php">Support</a>
-  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses</a>";} ?>
+  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses </a>";} ?>
   <a href="logout.php">Log Out</a>
 </div>
-
 
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
 <br>
 <br>
 <br>
-<legend style = "background-color: #7F1335; color: #FFF2CC;">Message</legend>
-</div>
-
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -126,7 +117,7 @@ function closeNav() {
 </script>
 
 <!-- Form Name -->
-
+<legend style = "background-color: #7F1335; color: #FFF2CC;">Message Page</legend>
  </head>
 <body>
 <div class="sechalf">
@@ -134,14 +125,16 @@ function closeNav() {
 
 <!--the message form-->
 <div id="main">
-    <form id ="form" class="form-horizontal" action="send.php" method="POST">
+    <form class="form-horizontal" action="send.php" method="POST">
         <fieldset>
             <div class="form-group">
             
                 <label class="col-md-4 control-label">From </label>
             <div class="col-md-4">
-                <input type="text" class="form-control input-md" id="keyword" name="from" placeholder="Sender's Username" value= "<?php echo $session_username; ?>" />
-                 
+                <?php
+                    $username = $_SESSION['username'];
+                    echo '<input type="text" class="form-control input-md" id="keyword" name="from" value="'.$username.'"/>' ?>
+                 <!--<p style = " background-color: #FFF2CC; color: black;" type="text" class="form-control input-md" id="keyword" name="from"> <? $username ?> </p>-->
             </div>
             </div>
         </fieldset>
@@ -151,7 +144,9 @@ function closeNav() {
            
                 <label class="col-md-4 control-label" >To</label>
             <div class="col-md-4">
-                <input type="text" class="form-control input-md" id="keyword" name="to" placeholder="Recipient's Username"/>
+            <?php
+                $toUsername = $_GET['username'];
+                echo '<input type="text" class="form-control input-md" id="keyword" name="to" value="'.$toUsername.'"/>' ?>
             </div>
             </div>
         </fieldset>
@@ -160,8 +155,10 @@ function closeNav() {
             <div class="form-group">
             
                 <label class="col-md-4 control-label">Subject</label>
-            <div class="col-md-4">  
-                <input type="text" class="form-control input-md" id="keyword" name="subject" placeholder="Subject"/>
+            <div class="col-md-4">
+            <?php
+                $book = $_GET['book'];
+                echo '<input type="text" class="form-control input-md" id="keyword" name="subjecr" value="'.$book.'"/>' ?>
             </div>
             </div>
         </fieldset>
@@ -171,25 +168,13 @@ function closeNav() {
             
                 <label class="col-md-4 control-label">Message</label>
             <div class="col-md-4">
-                <textarea style = "background-color: #FFF2CC;" name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here. Remember To Provide Your Contact Information To Your Receipient."></textarea> 
+                <textarea style = "background-color: #FFF2CC;" name="message" class="form-control input-md" id="description" placeholder="Type Your Message Here"></textarea> 
            
                 <input style = "background-color: #7F1335;" class="btn btn-primary" type="submit" name="submit" value="Send">
             </div>
             </div>
         </fieldset>
     </form>
-
-<script>
-  $(function(){
-      $('#form').submit(function(e){
-          e.preventDefault();
-          
-
-      });
-  });
-</script>
-
-
   </div>
 <!--end of message form-->
 </body>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "db_connection.php";
 
 $course = $_POST["course"];
@@ -19,8 +20,8 @@ $result = $mysqli->query($sql);
 			$title = $row["BookTitle"];
 			$author = $row["Author"];
 		}
-session_start();
-$user_id = $_SESSION['id'];
+
+$username = $_SESSION['username'];
 //echo "$user_id";
 // $new_joke_question = addslashes($new_joke_question);
 // $new_answer = addslashes($new_answer);
@@ -35,7 +36,7 @@ $condition = addslashes($condition);
 $description = addslashes($description);
 
 
- $sql = "INSERT INTO `books`.`book_table` (
+ $sql = "INSERT INTO `book_table` (
  `BookID` ,
 `ISBNum` ,
 `BookTitle` ,
@@ -43,15 +44,19 @@ $description = addslashes($description);
 `Edition` ,
 `Price` ,
 `Description` ,
-`Condition` ,
+`condition` ,
 `CourseNum` ,
-`user_id` 
+`username`
 ) 
- VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$price', '$description', '$condition', '$course', '$user_id')";
+ VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$price', '$description', '$condition', '$course', '$username')";
  $result = $mysqli->query($sql) or die("an error has occured");
 
- include "search_all_books.php";
+    if ($result === TRUE) {
+        header("refresh:2; url=search_all_books.php");
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
 
 ?>
 
-<a href="index.php">Return to main page</a>
+

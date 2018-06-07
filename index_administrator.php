@@ -1,5 +1,6 @@
 <?php
-  
+  session_start();
+$session_username = $_SESSION["username"];
   
   //session_start();
   //if(!isset($_SESSION['id'])){
@@ -89,18 +90,20 @@
 </style> -->
 
 
-
 <div class="otherH">
-<h1 class = "log" class ="log" style = "background-color: #7F1335;">SPU Book Finder, Welcome Administrator</h1>
+<h1 class = "log" style = "background-color: #7F1335;">SPU Book Finder<br>Welcome Administrator</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
-  <a href="add_course.php">Add Course</a>
+  <?php if($session_username == "administrator"){echo "<a href='index_administrator.php'>Search </a>";}
+    else{
+      echo "<a href='index_search.php'>Search</a>";
+    } ?>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="support.php">Support</a>
+  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses </a>";} ?>
   <a href="logout.php">Log Out</a>
 </div>
 
@@ -108,8 +111,7 @@
 
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
 <br>
-<br>
-<br>
+
 <legend style = "background-color: #7F1335; color: #FFF2CC;">Search</legend>
 </div>
 

@@ -1,6 +1,65 @@
 <?php
 	include_once("db.php");
 
+class email_validate {
+
+  private $spu_domain;
+  
+
+  public function __construct() {
+
+    $this->spu_domain = array(
+      'spu.edu'
+    );
+  }
+
+  public function validate_by_domain($email_address) {
+
+    $domain = $this->get_domain( trim( $email_address ) );
+    
+    if ( in_array( $domain, $this->spu_domain ) ) {
+      return true;
+    }
+    
+    return false;
+  }
+
+
+  private function get_domain($email_address) {
+
+    if ( ! $this->is_email( $email_address ) ) {
+      return false;
+    }
+    
+
+    $email_parts = explode( '@', $email_address );
+    
+
+    $domain = array_pop( $email_parts );
+    
+    return $domain;
+  }
+
+  private function is_email($email_address) {
+
+    if ( filter_var ( $email_address, FILTER_VALIDATE_EMAIL ) ) {
+      return true;
+    }
+    
+    return false;
+  }
+
+
+}
+
+$email_validation = new email_validate;
+
+if ( $email_validation->validate_by_domain($POST['email']) ) {
+  
+} else {
+  echo '<p>This is NOT an SPU Email!</p>';
+}
+
 	//session_start();
 	//got rid of this because it caused an error
 	//header already sent
@@ -117,7 +176,7 @@
 	
 	
 	
-	<form class="form-horizontal" oninput ="result.value=!!password_confirm.value&&(password.value==password_confirm.value)?'Match':'Nope!'" action="new-register.php" method="post" enctype="multipart/form-data">
+	<form name="register" class="form-horizontal" oninput ="result.value=!!password_confirm.value&&(password.value==password_confirm.value)?'Match':'Nope!'" action="new-register.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 	<fieldset>
 	
 
@@ -137,8 +196,18 @@
 			<div class="logoutline">
 			<input placeholder="Username" name="username" type="text" autofocus class="form-control">
 			
-			<input placeholder="E-mail Adress" name="email" type="text" class="form-control">
-		
+			<input placeholder="E-mail Adress" name="email" type="email" class="form-control">
+			<script>
+				validateEmail(){
+					var emailAddress = document.forms["register"]["email"].value;
+					var em = emailAddress.lastIndexOf('@');
+					if (em > -1 && emailAddress.slice(em + 1) === 'spu.edu') {
+						return true;
+					}
+					alert("Please Use SPU Email to Register!");
+	    			return false;
+    			}
+			</script>	
 			<input type="password" name="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
 				
 			<input type="password" name="password_confirm" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>

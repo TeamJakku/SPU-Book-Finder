@@ -1,157 +1,119 @@
-body,html {
-	margin:0px;
-	padding: 0px;
-	background: #2D649C url('images/background.jpg') repeat-x fixed top;
-}
-#container{
-	width: 920px;
-	left: 50%;
-	margin-left:-460px;
-	position:relative;
-	margin-top: 20px;
+
+	body {
+    font-family: "Lato", sans-serif;
 }
 
-#header{
-	margin-left:9px;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #7F1335;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-#menu{
-	display:block;
-	height: 38px;
-	margin:0px;
-	padding:0px;
-}
-#menu li{
-	margin:0px;
-	padding:0px;
-	display:block;
-	float:right;
-	height:38px;
-	margin-left:1px;
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFF2CC;
+    display: block;
+    transition: 0.3s;
 }
 
-#menua{
-	display:block;
-	float:left;
-	height:12px;
-	font-size:12px;
-	padding:13px;
-	margin:0px;
-	text-decoration:none;
-	color:white;
-	background:#264C71 url('images/menu.jpg') repeat-x;
+.sidenav a:hover {
+    color: #ffcc99;
 }
 
-#menuhover{
-	display:block;
-	float:left;
-	height:12px;
-	font-size:12px;
-	padding:13px;
-	margin:0px;
-	text-decoration:none;
-	color:#012C57;
-	background:#264C71 url('images/menuhover.jpg') repeat-x;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
 }
 
-
-#menua:hover{
-	color:lightgrey;
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
-#menuleft{
-	float:left;
-	background:#264C71 url('images/menuleft.jpg') repeat-x;
-	height:38px;
-	width:2px;
+div.ix {
+    background-color: #7F1335;
+	height: 250px;
+
+}
+div.otherH{
+    background-color: #7F1335;
+	height: 170px;
+
 }
 
-#menulefthover{
-	float:left;
-	background:#264C71 url('images/menulefthover.jpg') repeat-x;
-	height:38px;
-	width:2px;
+div.ad
+{
+	background-color: #7F1335;
+	height: 195px;
+}
+div.des{
+    background-color: #2D3832;
 }
 
-#menuright{
-	float:left;
-	background:#264C71 url('images/menuright.jpg') repeat-x;
-	height:38px;
-	width:2px;
-}
-#menurighthover{
-	float:left;
-	background:#264C71 url('images/menurighthover.jpg') repeat-x;
-	height:38px;
-	width:2px;
+p.desfont{
+	color: white;
+	text-align: center;
+
 }
 
-#content{
-	background: #D2EFFF url('images/content.jpg') repeat-x;
-	width:828px;
-	padding:46px;
-	padding-top:44px;
-}
-#content h1{
-	margin:0px;
-	padding:0px;
-	color: #37404C;
-}
-#content p, ul{
-	color:#6B6B6B;
-	font-size:13px;
+div.sechalf{
+	background-color:#EDD7B2;
 }
 
-#topcontent{
-	background: #D2EFFF url('images/topcontent.jpg') repeat-x;
-	width:920px;
-	height:2px;
+div.logoutline{
+	border-style: solid;
+    border-color: #7F1335;
+	
 }
-#botcontent{
-	background: #D2EFFF url('images/contentbot.jpg') repeat-x;
-	width:920px;
-	height:2px;
+
+h1.log{
+	text-align: center;
+	color: #FFF2CC;
+	font-weight: bold;
 }
-#footer{
-	margin-top:5px;
-	color:#81ACCE;
-	width:920px;
-	height:15px;
-	text-align:center;
-	font-size:14px;
+
+h2.t{
+	color: #7F1335;
 }
-#contentleft{
-	width:570px;
-	float:left;
+
+input[type=text] {
+    background-color: #FFF2CC;
+    color: black;
 }
-#banner{
-	display:block;
-	height:602px;
-	width:162px;
-	background: url('images/banner.jpg');
-	float:right;
+
+input[type=password] {
+    background-color: #FFF2CC;
+    color: black;
+}
+
+textarea{
+    background-color: #FFF2CC;
+    color: black;
+}
+
+input[type=search] {
+    background-color: #FFF2CC;
+    color: black;
 }
 
 
 
-/* PHP info styling */
-pre {margin: 0px; font-family: monospace;}
-a:link {color: #000099; text-decoration: none; background-color: #ffffff;}
-a:hover {text-decoration: underline;}
-table {border-collapse: collapse;}
-.center {text-align: center;}
-.center table { margin-left: auto; margin-right: auto; text-align: left;}
-.center th { text-align: center !important; }
-td, th { border: 1px solid #000000; font-size: 75%; vertical-align: baseline;}
-h1 {font-size: 150%; color:white;}
-h2 {font-size: 125%;}
-.p {text-align: left; display:none}
-.e { font-weight: bold; color: #000000;}
-.h {font-weight: bold; color: white;}
-.v {word-break:break-all; color: #000000;}
-.vr {background-color: #cccccc; text-align: right; color: #000000;}
-.h img{	display:none;}
-.h { background-color: #2D649C; color:white; }
-hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}
 
-			
+
+

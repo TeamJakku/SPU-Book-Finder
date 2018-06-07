@@ -21,26 +21,26 @@ $edition = addslashes($edition);
 
 
 
- $sql_fetch_book = "INSERT INTO `books`.`book_required` (
-`BookID` ,
-`ISBNum` ,
-`BookTitle` ,
-`Author` ,
-`Edition` ,
-`courseNum`  
-) 
- VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$course_num')";
+ //$sql_fetch_book = "INSERT INTO `book_required` (
+//`BookID` ,
+//`ISBNum` ,
+//`BookTitle` ,
+//`Author` ,
+//`Edition` ,
+//`courseNum`
+//)
+// VALUES (NULL, '$isbn', '$title', '$author', '$edition', '$course_num')";
  
- $sql_fetch_course = "INSERT INTO `books`.`course_table` (
+ $sql_fetch_course = "INSERT INTO `course_table` (
 `CourseID` ,
 `CourseTitle` ,
 `Section` ,
-`CourseNum` 
+`CourseNum`
 ) 
  VALUES (NULL, '$course_title', '$section', '$course_num')";
  
  $result_course = $mysqli->query($sql_fetch_course) or die("an error has occured in trying to fetch course".mysqli_error($mysqli));
- $result_book = $mysqli->query($sql_fetch_book) or die("an error has occured in trying to fetch book".mysqli_error($mysqli));
+ //$result_book = $mysqli->query($sql_fetch_book) or die("an error has occured in trying to fetch book".mysqli_error($mysqli));
 
  include "search_all_books.php";
  
@@ -49,4 +49,3 @@ $edition = addslashes($edition);
 
 ?>
 
-<a href="index.php">Return to main page</a>

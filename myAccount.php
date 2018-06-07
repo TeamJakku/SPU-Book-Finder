@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-    
+$session_username = $_SESSION["username"];
 ?>
 <html>  
 
@@ -9,8 +9,7 @@ session_start();
 
 <head>
 <title>My Account</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+<meta name="viewport" content= "width-device-width, initial-scale=1">
 
 <link rel="stylesheet" href="style.css">
 
@@ -28,14 +27,20 @@ session_start();
 <h1 style = "background-color: #7F1335;" class ="log">SPU Book Finder</h1>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index_search.php">Search</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <?php if($session_username == "administrator"){echo "<a href='index_administrator.php'>Search </a>";}
+    else{
+      echo "<a href='index_search.php'>Search</a>";
+    } ?>
   <a href="add_book_form.php">Post</a>
   <a href="delete_post.php">Delete</a>
   <a href="email_chat.php">Message</a>
   <a href="myAccount.php">My Account</a>
   <a href="support.php">Support</a>
+  <?php if($session_username == "administrator"){echo "<a href='add_course_form.php'>Add Courses </a>";} ?>
   <a href="logout.php">Log Out</a>
 </div>
+
 
 
 <span style="font-size:30px; background-color: #7F1335; cursor:pointer; color:#FFF2CC;" onclick="openNav()">&#9776;</span>
@@ -99,44 +104,37 @@ $result = $mysqli->query($sql);
             <!-- Code for Password-->
             
 
-                </div>
+                
             
             <output name="result"></output>
         
-        </div>
+       
     
     
     <!-- Code for Edit Fields Button-->
 	<form action="change_password.php" oninput ="result.value=!! new_password.value&&(new_password.value==new_password_confirmed.value)?'Match':'Passwords do not match!'" action="register.php" method="post" enctype="multipart/form-data">
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-    <div class="form-group">
 	
 		<label for="inputPassword" class="control-label">Change Password</label>
                 
                 <div class="help-block"></div>
                     
-                    <div class="form-group col-sm-6">
-                        <input type="password" name="old_password" class="form-control" id="old_password" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm Old Password" required>
+                    
+                        <input style="padding: 4px" type="password" name="old_password" class="form-control" id="old_password" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm Old Password" required>
                         <div class="help-block with-errors"></div>
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        <input type="password" name="new_password" data-minlength="6" class="form-control" id="new_password" placeholder="Enter New Password" required>
+                
+						<br>
+                   
+                        <input style="padding: 4px" type="password" name="new_password" data-minlength="6" class="form-control" id="new_password" placeholder="Enter New Password" required>
                         
-                    </div>
-
-                    <div class="form-group col-sm-6">
-                        <input type="password" name="new_password_confirmed" data-minlength="6" class="form-control" id="new_password_confirmed" placeholder="Confirm New Password" required>
+                   
+						<br>
+                    
+                        <input style="padding: 4px" type="password" name="new_password_confirmed" data-minlength="6" class="form-control" id="new_password_confirmed" placeholder="Confirm New Password" required>
 						
                          <output name="result"></output>
 						
-                    </div>
+                   
 					
         <label class="col-md-4 control-label" for="Search Button"></label>
         <div class="col-md-4">
@@ -145,7 +143,7 @@ $result = $mysqli->query($sql);
     </div>
     
 
-    </fieldset>
+</div>
     </form>
   
 </div>
